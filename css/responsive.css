@@ -203,6 +203,7 @@
 
   .step-item {
     max-width: 100%;
+    min-height: auto;
   }
 
   /* セキュリティ */
