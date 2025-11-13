@@ -1,0 +1,1354 @@
+/* コエレク LP メインスタイルシート */
+
+/* ========================================
+   カスタムプロパティ（CSS変数）
+======================================== */
+:root {
+  /* カラーパレット */
+  --wonder-blue: #2563EB;
+  --wonder-blue-dark: #1E40AF;
+  --wonder-blue-light: #3B82F6;
+  --healing-green: #34C759;
+  --healing-green-dark: #28A745;
+
+  /* ニュートラルカラー */
+  --white: #FFFFFF;
+  --deep-navy: #1D1D1F;
+  --gray-100: #F7F7F7;
+  --gray-300: #D1D5DB;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+
+  /* 背景色 */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F7;
+  --bg-dark: #1D1D1F;
+
+  /* フォント */
+  --font-primary: 'Noto Sans JP', sans-serif;
+  --font-numbers: 'Roboto', sans-serif;
+
+  /* フォントサイズ */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
+  --text-6xl: 72px;
+
+  /* 行間 */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* 余白 */
+  --section-spacing: 128px;
+  --section-spacing-mobile: 64px;
+  --container-max-width: 1200px;
+  --container-padding: 10%;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  
+  /* ヒーロー背景既定（画像未設定時のグラデーション） */
+  --hero-image: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+  
+  /* アクセント */
+  --accent-red: #EF4444;
+}
+
+/* ========================================
+   共通スタイル
+======================================== */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--deep-navy);
+}
+
+.section-subtitle {
+  font-size: var(--text-xl);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--gray-700);
+}
+
+.highlight {
+  color: var(--wonder-blue);
+  font-weight: 700;
+}
+
+.highlight-large {
+  color: var(--wonder-blue);
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+/* ========================================
+   ヘッダー（固定）
+======================================== */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding: var(--spacing-md) 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--wonder-blue);
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.cta-button-header {
+  background: var(--wonder-blue);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.cta-button-header:hover {
+  background: var(--wonder-blue-dark);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   CTAボタン共通
+======================================== */
+.cta-button-primary {
+  display: inline-block;
+  background: var(--wonder-blue);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.cta-button-primary:hover {
+  background: var(--wonder-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+}
+
+.cta-button-primary.large {
+  padding: 20px 48px;
+  font-size: var(--text-2xl);
+}
+
+.cta-button-secondary {
+  display: inline-block;
+  background: var(--white);
+  color: var(--wonder-blue);
+  border: 2px solid var(--wonder-blue);
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+  background: var(--wonder-blue);
+  color: var(--white);
+}
+
+.cta-inline {
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+}
+
+/* ========================================
+   Section 1: ヒーロー
+======================================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* PC用最大幅 */
+  min-height: auto;
+  display: block;
+  padding: 0 32px; /* 左右に余白 */
+  margin: 80px auto 0; /* 上部ヘッダー分 + 中央配置 */
+  background: var(--white);
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* オーバーレイを削除（画像が暗くならないように） */
+
+.hero-headline {
+  font-size: clamp(28px, 6vw, var(--text-6xl));
+  font-weight: 900;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-xl);
+  line-height: var(--leading-tight);
+  text-align: center;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0 0;
+}
+
+.hero-cta.center {
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px; /* PC・タブレット用角丸 */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); /* 軽い影で浮き上がる */
+  animation: zoomIn 1.2s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 浮かび上がるテキストオーバーレイ */
+.hero-text-overlay {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-text-main {
+  width: auto;
+  max-width: 91.96%; /* 5%縮小: 96.8% × 0.95 = 91.96% */
+  height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+/* コエレクロゴ */
+.hero-logo-overlay {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 4.5%;
+}
+
+.hero-logo {
+  width: auto;
+  max-width: 52.5%; /* 50% × 1.05 = 52.5% */
+  height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  animation: fadeInUpLogo 1s ease-out 0.6s forwards;
+}
+
+@keyframes fadeInUpLogo {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-4px); /* -20px + 16px = -4px */
+  }
+}
+
+/* スマホ向け: 左右に余裕を持たせる */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0 16px;
+  }
+
+  .hero-image {
+    border-radius: 12px;
+  }
+
+  .hero-text-overlay {
+    top: 6%;
+  }
+
+  .hero-text-main {
+    max-width: 90%;
+  }
+}
+
+.image-placeholder {
+  background: var(--gray-100);
+  border: 2px dashed var(--gray-300);
+  border-radius: 16px;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  color: var(--gray-500);
+  min-height: 520px; /* ヒーロー画像領域を拡大 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 100px);
+}
+
+.hero-stack {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  min-height: inherit;
+}
+
+.hero-section .hero-headline {
+  color: var(--white);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.hero-tagline-pill {
+  align-self: center;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hero-stats {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  align-self: center;
+}
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 9999px;
+}
+
+.stat-badge .label {
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
+
+.stat-badge .value {
+  font-size: var(--text-lg);
+  font-weight: 900;
+  font-family: var(--font-numbers);
+}
+
+.stat-sep {
+  color: rgba(255,255,255,0.8);
+  font-weight: 800;
+}
+
+.hero-cta--bottom {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8vh;
+}
+
+/* 強調グラデーションCTA */
+.cta-button-primary.gradient {
+  background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #34C759 100%);
+  box-shadow: 0 10px 24px rgba(37,99,235,0.35), 0 2px 8px rgba(0,0,0,0.12);
+  border: 0;
+}
+.cta-button-primary.gradient:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37,99,235,0.45), 0 4px 12px rgba(0,0,0,0.16);
+}
+
+/* CTA 二段組（メイン/サブ） */
+.cta-button-primary .cta-main {
+  display: block;
+  line-height: 1.2;
+}
+.cta-button-primary .cta-sub {
+  display: block;
+  font-size: var(--text-sm);
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.hero-cta-wrapper {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: var(--text-2xl);
+  color: var(--wonder-blue);
+  animation: bounce 2s infinite;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .hero-cta-wrapper {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    width: auto;
+  }
+
+  .hero-cta-wrapper .cta-button-primary {
+    width: 100%;
+    font-size: var(--text-base);
+    padding: 14px 24px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ========================================
+   Section 2: 導入実績
+======================================== */
+.social-proof-section {
+  padding: var(--section-spacing) 0;
+  background: var(--white);
+}
+
+.hospital-logos {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+}
+
+.hospital-logo {
+  height: 80px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.hospital-logo:hover {
+  transform: scale(1.05);
+}
+
+.social-proof-tagline {
+  text-align: center;
+  font-size: var(--text-xl);
+  color: var(--gray-700);
+  margin: var(--spacing-xl) 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.stat-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* ブロック全体を中央寄せ */
+  gap: var(--spacing-md);
+}
+
+.stat-number {
+  font-size: clamp(80px, 12vw, 160px); /* 大きさはキープ */
+  font-weight: 900;
+  font-family: var(--font-numbers);
+  line-height: 0.9;
+  color: var(--wonder-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 8px;
+}
+
+.stat-unit {
+  font-size: clamp(26px, 4vw, 52px);
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-left: 8px;
+}
+
+.stat-unit.red {
+  color: var(--accent-red);
+}
+
+.stat-number.small {
+  font-size: var(--text-3xl);
+  color: var(--deep-navy);
+}
+
+.stat-sep {
+  font-size: var(--text-4xl);
+  color: var(--gray-300);
+}
+
+.stat-number.red {
+  color: var(--accent-red);
+}
+
+.stat-number.blue {
+  color: var(--wonder-blue);
+}
+
+.stat-unit.blue {
+  color: var(--wonder-blue);
+}
+
+.stat-postfix {
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.stat-arrow {
+  display: inline-block;
+  width: clamp(90px, 12vw, 140px);
+  height: auto;
+  vertical-align: middle;
+}
+.stat-arrow svg { width: 100%; height: auto; display: block; }
+
+.stat-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 80%に左合わせ */
+  text-align: left;
+}
+
+.stat-main {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.social-proof-section .stat-top {
+  font-size: clamp(21px, 2.4vw, 27px) !important; /* 1.5倍: 14px→21px, 18px→27px */
+  font-weight: 700;
+  color: var(--deep-navy); /* 削減と同じ色 */
+  margin-bottom: 6px;
+}
+
+.stat-suffix {
+  font-size: clamp(14px, 1.6vw, 18px); /* の自由を と同サイズ */
+  font-weight: 700;
+  color: var(--deep-navy);
+}
+
+.stat-sub {
+  margin-top: 6px;
+  font-size: var(--text-base);
+  color: var(--gray-500);
+}
+
+.stat-label {
+  font-size: var(--text-xl);
+  color: var(--deep-navy);
+  font-weight: 700;
+}
+
+.stat-description {
+  font-size: var(--text-base);
+  color: var(--gray-500);
+}
+
+/* ========================================
+   Section 3: 問題提起（圧縮版）
+======================================== */
+.problem-section {
+  padding: 80px 0; /* スクロール削減のため128px→80px */
+  background: var(--bg-secondary);
+}
+
+.problem-list-compact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 48px auto 0;
+  max-width: 1100px;
+}
+
+.problem-item-compact {
+  text-align: center;
+  padding: 40px 24px 32px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--accent-red);
+  transition: all 0.3s ease;
+}
+
+.problem-item-compact:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.15);
+}
+
+.problem-icon-compact {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  border-radius: 50%;
+}
+
+.problem-illustration {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.problem-emoji {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.problem-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--deep-navy);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* レスポンシブ: タブレット */
+@media (max-width: 1024px) {
+  .problem-list-compact {
+    gap: 24px;
+  }
+
+  .problem-item-compact {
+    padding: 32px 20px 28px;
+  }
+
+  .problem-text {
+    font-size: 16px;
+  }
+}
+
+/* レスポンシブ: スマホ */
+@media (max-width: 768px) {
+  .problem-section {
+    padding: 64px 0;
+  }
+
+  .problem-list-compact {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 32px auto 0;
+  }
+
+  .problem-item-compact {
+    padding: 32px 24px;
+  }
+
+  .problem-icon-compact {
+    width: 80px;
+    height: 80px;
+  }
+
+  .problem-illustration {
+    width: 52px;
+    height: 52px;
+  }
+
+  .problem-emoji {
+    font-size: 48px;
+  }
+}
+
+/* ========================================
+   Section 4: 問題の原因 → 解決策
+======================================== */
+.solution-section {
+  /* No padding here, handled by subsections */
+}
+
+.solution-problem {
+  padding: var(--section-spacing) 0;
+  background: var(--bg-dark);
+  color: var(--white);
+}
+
+.solution-problem .section-title,
+.solution-problem .section-subtitle {
+  color: var(--white);
+}
+
+.wall-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.wall-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.wall-icon {
+  font-size: var(--text-4xl);
+}
+
+.wall-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+}
+
+.wall-description {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--leading-relaxed);
+}
+
+.solution-answer {
+  padding: var(--section-spacing) 0;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%);
+}
+
+.future-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.future-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.future-icon {
+  font-size: var(--text-4xl);
+}
+
+.future-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--wonder-blue);
+  margin-bottom: var(--spacing-md);
+}
+
+.future-description {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+/* ========================================
+   Section 4.5: デモ動画
+======================================== */
+.demo-video-section {
+  padding: var(--section-spacing) 0;
+  background: var(--bg-secondary);
+}
+
+.video-wrapper {
+  margin: var(--spacing-2xl) 0;
+}
+
+.video-placeholder {
+  background: var(--gray-700);
+  border-radius: 16px;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  color: var(--white);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+}
+
+.video-features {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.video-features .feature-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--text-lg);
+  color: var(--gray-700);
+}
+
+.feature-icon {
+  color: var(--healing-green);
+  font-weight: 900;
+}
+
+.video-summary {
+  text-align: center;
+  font-size: var(--text-lg);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+  margin: var(--spacing-xl) 0;
+}
+
+/* ========================================
+   Section 5: 使用ステップ
+======================================== */
+.how-it-works-section {
+  padding: var(--section-spacing) 0;
+  background: var(--white);
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-2xl) 0;
+}
+
+.step-item {
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--bg-secondary);
+  border-radius: 16px;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--wonder-blue);
+  color: var(--white);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+}
+
+.step-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.step-time {
+  font-size: var(--text-lg);
+  color: var(--wonder-blue);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.step-description {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+.step-arrow {
+  font-size: var(--text-4xl);
+  color: var(--gray-300);
+  font-weight: 700;
+}
+
+.steps-summary {
+  text-align: center;
+  margin: var(--spacing-2xl) 0;
+}
+
+.summary-text {
+  font-size: var(--text-xl);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+.how-it-works-tagline {
+  text-align: center;
+  font-size: var(--text-xl);
+  color: var(--gray-500);
+  margin-top: var(--spacing-lg);
+}
+
+/* ========================================
+   Section 6: メリット（3本柱）
+======================================== */
+.benefits-section {
+  padding: var(--section-spacing) 0;
+  background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.benefit-item {
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: var(--text-5xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.benefit-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-md);
+}
+
+.benefit-description {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+  text-align: left;
+}
+
+/* ========================================
+   Section 7: 導入事例 + セキュリティ
+======================================== */
+.testimonials-section {
+  padding: var(--section-spacing) 0;
+  background: var(--bg-secondary);
+}
+
+.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.testimonial-item {
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.testimonial-hospital {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--wonder-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-name {
+  font-size: var(--text-base);
+  color: var(--gray-500);
+}
+
+.testimonial-content {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+.security-section {
+  margin-top: var(--section-spacing);
+}
+
+.security-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.security-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: 16px;
+}
+
+.security-icon {
+  font-size: var(--text-4xl);
+}
+
+.security-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.security-description {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+/* ========================================
+   Section 8: FAQ
+======================================== */
+.faq-section {
+  padding: var(--section-spacing) 0;
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: var(--spacing-2xl) auto 0;
+}
+
+.faq-item {
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: var(--bg-secondary);
+}
+
+.faq-question h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--deep-navy);
+}
+
+.faq-toggle {
+  font-size: var(--text-3xl);
+  color: var(--wonder-blue);
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 var(--spacing-lg);
+}
+
+.faq-answer.open {
+  max-height: 1000px;
+  padding: var(--spacing-lg);
+}
+
+.faq-answer p {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  line-height: var(--leading-relaxed);
+}
+
+/* ========================================
+   Section 9: 最終CTA
+======================================== */
+.final-cta-section {
+  padding: var(--section-spacing) 0;
+  background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.final-cta-section .section-title {
+  color: var(--white);
+}
+
+.final-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.final-cta-message {
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--spacing-xl);
+}
+
+.final-cta-stats {
+  margin: var(--spacing-xl) 0;
+}
+
+.stat-large {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  margin: var(--spacing-md) 0;
+}
+
+.final-cta-destination {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: var(--leading-relaxed);
+  margin: var(--spacing-xl) 0;
+}
+
+.final-cta-trial {
+  font-size: var(--text-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.final-cta-buttons {
+  margin: var(--spacing-2xl) 0;
+}
+
+.cta-secondary-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.final-cta-features {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.final-cta-features .feature-item {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   フッター
+======================================== */
+.footer {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-dark);
+  color: var(--white);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-brand h3 {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--wonder-blue);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-brand p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.footer-column h4 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-column ul li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-column ul li a {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: var(--wonder-blue-light);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   アニメーション
+======================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   簡易セクション（ダウンロード/相談/お問い合わせ）
+======================================== */
+.simple-section {
+  padding: var(--section-spacing) 0;
+  background: var(--white);
+}
