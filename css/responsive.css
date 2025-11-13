@@ -1,0 +1,426 @@
+/* レスポンシブ対応 */
+
+/* ========================================
+   タブレット（641px - 1024px）
+======================================== */
+@media (max-width: 1024px) {
+  /* 動画はタブレット以下で非表示（静止画にフォールバック） */
+  .hero-bg-video { display: none; }
+  .hero-section { background-image: var(--hero-image); }
+  :root {
+    --text-6xl: 56px;
+    --text-5xl: 40px;
+    --text-4xl: 32px;
+    --text-3xl: 24px;
+    --section-spacing: 96px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+  .hero-cta--bottom { bottom: 6vh; }
+
+  .hero-numbers {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hospital-logos {
+    flex-wrap: wrap;
+  }
+
+  .benefits-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .testimonials-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .steps {
+    flex-direction: column;
+  }
+
+  .step-arrow {
+    transform: rotate(90deg);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section 4: Before/After 対比 (タブレット) */
+  .comparison-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .comparison-arrow {
+    transform: rotate(90deg);
+  }
+
+  .arrow-logo {
+    width: 120px;
+  }
+
+  .arrow-text {
+    font-size: var(--text-lg);
+  }
+
+  .arrow-icon {
+    font-size: 48px;
+  }
+}
+
+/* ========================================
+   モバイル（max-width: 640px）
+======================================== */
+@media (max-width: 640px) {
+  /* さらにモバイルではCTAを大きめに */
+  .hero-cta .cta-button-primary { font-size: var(--text-lg); padding: 16px 28px; }
+  .hero-cta .cta-button-secondary { font-size: var(--text-base); padding: 12px 24px; }
+  :root {
+    --text-6xl: 40px;
+    --text-5xl: 32px;
+    --text-4xl: 28px;
+    --text-3xl: 20px;
+    --text-2xl: 18px;
+    --text-xl: 16px;
+    --section-spacing: var(--section-spacing-mobile);
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  /* ヘッダー */
+  .header-content {
+    padding: 0 var(--spacing-md);
+  }
+
+  .logo h1 {
+    font-size: var(--text-xl);
+  }
+
+  .cta-button-header {
+    padding: 8px 16px;
+    font-size: var(--text-sm);
+  }
+
+  /* ヒーローセクション */
+  .hero-section {
+    padding: var(--spacing-2xl) 0;
+    padding-top: calc(var(--spacing-2xl) + 60px);
+  }
+
+  .hero-headline { font-size: clamp(20px, 7vw, var(--text-4xl)); }
+
+  .hero-subheadline {
+    font-size: var(--text-xl);
+  }
+
+  .hero-tagline-pill { font-size: var(--text-sm); padding: 6px 12px; }
+  .hero-stats { flex-wrap: wrap; gap: 6px; }
+  .stat-badge { padding: 6px 10px; }
+  .stat-badge .label { font-size: var(--text-xs); }
+  .stat-badge .value { font-size: var(--text-base); }
+
+  .hero-cta { flex-direction: column; gap: var(--spacing-sm); }
+  .hero-cta--bottom {
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+  }
+
+  .cta-button-primary,
+  .cta-button-secondary {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: var(--text-base);
+  }
+
+  .hero-features {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .hero-numbers {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  /* セクションタイトル */
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-base);
+  }
+
+  /* 病院ロゴ */
+  .hospital-logos {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .hospital-logo {
+    max-width: 80%;
+  }
+
+  /* 問題提起 */
+  .problem-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .problem-icon {
+    font-size: var(--text-3xl);
+    text-align: center;
+  }
+
+  /* 壁と未来 */
+  .wall-item,
+  .future-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .wall-icon,
+  .future-icon {
+    font-size: var(--text-3xl);
+    text-align: center;
+  }
+
+  /* ステップ */
+  .steps {
+    gap: var(--spacing-md);
+  }
+
+  .step-item {
+    max-width: 100%;
+  }
+
+  /* セキュリティ */
+  .security-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .security-icon {
+    font-size: var(--text-3xl);
+    text-align: center;
+  }
+
+  /* Section 4: Before/After 対比 (モバイル) */
+  .before-after-section {
+    padding: 64px 0;
+  }
+
+  .comparison-wrapper {
+    gap: 24px;
+    margin: 40px 0;
+  }
+
+  .comparison-item {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .comparison-title {
+    font-size: var(--text-xl);
+  }
+
+  .comparison-list li {
+    font-size: var(--text-sm);
+  }
+
+  .arrow-logo {
+    width: 100px;
+  }
+
+  .arrow-text {
+    font-size: var(--text-base);
+  }
+
+  .arrow-icon {
+    font-size: 40px;
+  }
+
+  .comparison-result {
+    margin-top: 40px;
+    padding: 32px 24px;
+  }
+
+  .result-emotion {
+    font-size: var(--text-2xl);
+    margin-bottom: 24px;
+  }
+
+  .result-comparison {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .result-text {
+    text-align: center;
+  }
+
+  .result-label {
+    justify-content: center;
+  }
+
+  .result-label-logo {
+    height: 32px;
+  }
+
+  .result-label-text {
+    font-size: var(--text-base);
+  }
+
+  .result-time-comparison {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .time-number {
+    font-size: clamp(50px, 10vw, 70px);
+  }
+
+  .time-unit {
+    font-size: clamp(25px, 5vw, 35px);
+  }
+
+  .result-arrow-right {
+    font-size: clamp(30px, 5vw, 40px);
+  }
+
+  .result-graph {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .result-numbers {
+    font-size: var(--text-2xl);
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .time-separator {
+    display: none;
+  }
+
+  .time-emphasis {
+    font-size: var(--text-xl);
+  }
+
+  .result-subtext {
+    font-size: var(--text-base);
+  }
+
+  /* FAQ */
+  .faq-question h3 {
+    font-size: var(--text-base);
+  }
+
+  .faq-toggle {
+    font-size: var(--text-2xl);
+  }
+
+  /* 最終CTA */
+  .final-cta-section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .cta-button-primary.large {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: var(--text-lg);
+  }
+
+  .cta-secondary-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .cta-secondary-buttons .cta-button-secondary {
+    width: 100%;
+  }
+
+  .final-cta-features {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  /* フッター */
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* 画像・動画プレースホルダー */
+  .image-placeholder,
+  .video-placeholder {
+    min-height: 250px;
+    font-size: var(--text-sm);
+  }
+}
+
+/* ========================================
+   タッチデバイス対応
+======================================== */
+@media (hover: none) and (pointer: coarse) {
+  .cta-button-primary,
+  .cta-button-secondary,
+  .cta-button-header {
+    padding: 16px 24px;
+    min-height: 48px;
+  }
+
+  .faq-question {
+    padding: var(--spacing-md);
+  }
+}
+
+/* ========================================
+   印刷用スタイル
+======================================== */
+@media print {
+  .header-fixed,
+  .footer,
+  .cta-button-primary,
+  .cta-button-secondary,
+  .scroll-indicator {
+    display: none;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  .section-title {
+    page-break-after: avoid;
+  }
+
+  .problem-item,
+  .wall-item,
+  .future-item,
+  .testimonial-item {
+    page-break-inside: avoid;
+  }
+}
+  /* 導入実績の数字 */
+  .stat-inline { gap: 12px; }
+  .stat-arrow { width: clamp(70px, 16vw, 110px); }
+  .stat-number { font-size: clamp(64px, 18vw, 112px); }
+  .stat-number .unit { font-size: 0.33em; }
+  .stat-top { font-size: var(--text-xs); }
+  .stat-suffix, .stat-postfix { font-size: var(--text-base); }
+  .stat-sub { font-size: var(--text-sm); }
+  .stat-postfix { font-size: var(--text-base); }
