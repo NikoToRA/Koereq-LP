@@ -1282,45 +1282,238 @@
 }
 
 /* ========================================
-   Section 6: メリット（3本柱）
+   Section 7: メリット（3本柱） - 感情訴求版
 ======================================== */
 .benefits-section {
   padding: var(--section-spacing) 0;
-  background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #F7FAFC 0%, #FFFFFF 100%);
 }
 
-.benefits-list {
+.benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
-  margin: var(--spacing-2xl) 0;
+  gap: 40px;
+  margin: 64px 0;
 }
 
-.benefit-item {
-  padding: var(--spacing-xl);
+.benefit-card {
   background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.15);
+}
+
+/* ビジュアルセクション */
+.benefit-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.benefit-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.benefit-card:hover .benefit-image {
+  transform: scale(1.05);
+}
+
+/* プレースホルダー（画像確認用） */
+.benefit-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+}
+
+.benefit-image-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 25%;
+  border: 3px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 0 12px 0 0;
+}
+
+.benefit-image-placeholder::after {
+  content: "数字BOX\nスペース";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  white-space: pre-line;
+  line-height: 1.3;
 }
 
-.benefit-icon {
-  font-size: var(--text-5xl);
-  margin-bottom: var(--spacing-md);
+.benefit-image-placeholder.patient {
+  background: linear-gradient(135deg, #FFA726 0%, #FFB74D 100%);
 }
 
-.benefit-title {
-  font-size: var(--text-2xl);
+.benefit-image-placeholder.education {
+  background: linear-gradient(135deg, #42A5F5 0%, #66BB6A 100%);
+}
+
+.benefit-image-placeholder.research {
+  background: linear-gradient(135deg, #7E57C2 0%, #5C6BC0 100%);
+}
+
+.placeholder-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 数字オーバーレイ */
+.benefit-stat-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.benefit-number {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Roboto', sans-serif;
+}
+
+.benefit-number-small {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.benefit-unit {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--wonder-blue);
+  margin-left: 2px;
+}
+
+.benefit-stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-600);
+  letter-spacing: 0.5px;
+}
+
+/* テキストセクション */
+.benefit-text {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.benefit-card-title {
+  font-size: 19px;
   font-weight: 700;
   color: var(--deep-navy);
-  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 12px;
 }
 
-.benefit-description {
-  font-size: var(--text-base);
-  color: var(--gray-700);
-  line-height: var(--leading-relaxed);
-  text-align: left;
+/* 吹き出し（患者・研修医・自分の声） */
+.benefit-voice {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border-left: 4px solid var(--wonder-blue);
+  padding: 16px 20px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.benefit-voice::before {
+  content: "💬";
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.voice-quote {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-navy);
+  font-style: italic;
+  display: block;
+  line-height: 1.5;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.benefit-detail {
+  font-size: 14px;
+  color: var(--gray-600);
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* 感情的クロージング */
+.benefits-closing {
+  margin-top: 64px;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.25);
+}
+
+.closing-message {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.closing-emphasis {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
 }
 
 /* ========================================
@@ -1420,14 +1613,21 @@
 }
 
 .security-main-section {
-  padding: var(--section-spacing) 0;
+  padding: 60px 0;
   background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
 }
 
 .security-image-wrapper {
-  margin: var(--spacing-2xl) 0;
+  margin: 32px 0 40px;
   display: flex;
   justify-content: center;
+}
+
+.security-diagram {
+  max-width: 50%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .security-image-placeholder {
@@ -1463,36 +1663,48 @@
 }
 
 .security-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  margin: var(--spacing-2xl) 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0 0;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .security-item {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px;
   background: var(--white);
-  border-radius: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.security-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
 }
 
 .security-icon {
-  font-size: var(--text-4xl);
+  font-size: 32px;
+  line-height: 1;
 }
 
 .security-title {
-  font-size: var(--text-xl);
+  font-size: 17px;
   font-weight: 700;
   color: var(--deep-navy);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 4px;
+  line-height: 1.4;
 }
 
 .security-description {
-  font-size: var(--text-base);
-  color: var(--gray-700);
-  line-height: var(--leading-relaxed);
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
 }
 
 /* ========================================

@@ -34,6 +34,12 @@
     gap: var(--spacing-lg);
   }
 
+  /* Section 7: メリット3本柱（タブレット） */
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .testimonials-list {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
@@ -215,6 +221,54 @@
   .security-icon {
     font-size: var(--text-3xl);
     text-align: center;
+  }
+
+  .security-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section 7: メリット3本柱（モバイル：横スライド） */
+  .benefits-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    margin: 48px 0;
+    padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .benefits-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .benefit-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    margin-right: 16px;
+  }
+
+  .benefit-card:last-child {
+    margin-right: 0;
+    padding-right: 16px;
+  }
+
+  /* スライドインジケーター（ドット） */
+  .benefits-section::after {
+    content: "";
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  /* 吹き出しテキスト調整 */
+  .benefit-card-title {
+    font-size: 17px;
+  }
+
+  .voice-quote {
+    font-size: 13px;
   }
 
   /* Section 4: Before/After 対比 (モバイル) */

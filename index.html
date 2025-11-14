@@ -346,10 +346,7 @@
 
         <!-- セキュリティイメージ -->
         <div class="security-image-wrapper">
-          <div class="security-image-placeholder">
-            <p>[QRコードリーダーと安全性のイメージ画像]</p>
-            <p class="image-note">オンプレミス電子カルテとクラウドAIの安全な連携イメージ</p>
-          </div>
+          <img src="images/security_qr.png" alt="病院のPCにネット接続せずに、AIの恩恵が受けられる - オンプレミス電子カルテとクラウドAIの安全な連携" class="security-diagram">
         </div>
 
         <div class="security-list">
@@ -390,62 +387,81 @@
       </div>
     </section>
 
-    <!-- Section 7: メリット（3本柱） -->
+    <!-- Section 7: メリット（3本柱） - 感情訴求版 -->
     <section id="benefits" class="benefits-section">
       <div class="container">
         <h2 class="section-title">だから叶う、あなたの理想の未来</h2>
-        <p class="section-subtitle">安心して使えるから、時間が生まれる</p>
+        <p class="section-subtitle">取り戻した時間が、あなたの夢を叶える</p>
 
-        <div class="benefits-list">
-          <div class="benefit-item">
-            <div class="benefit-icon">🎯</div>
-            <div class="benefit-content">
-              <h3 class="benefit-title">患者さんと接する時間が増える</h3>
-              <p class="benefit-description">
-                救急搬送1件、タイピング20分 → コエレク2分。<br>
-                1日5件なら、90分の削減。<br><br>
-                <strong class="highlight-large">月20日稼働で、月16時間があなたに戻る。</strong><br><br>
-                この時間を、患者さんに。<br><br>
-                『もう少し、話を聞いてあげられる』<br>
-                『家族への説明を、丁寧にできる』<br>
-                『退院後のフォローまで、考えられる』<br><br>
-                記録に奪われていた時間が、患者さんとの対話時間に変わります。<br><br>
-                <strong class="highlight">対話時間+30%</strong>
-              </p>
+        <div class="benefits-grid">
+          <!-- カード1: 患者との時間 -->
+          <div class="benefit-card">
+            <div class="benefit-visual">
+              <div class="benefit-image-placeholder patient">
+                <p>患者との対話シーン</p>
+                <span class="placeholder-note">温かいオレンジ～ベージュ系<br>右上にスペース確保</span>
+              </div>
+              <div class="benefit-stat-overlay">
+                <span class="benefit-number">+30<span class="benefit-unit">%</span></span>
+                <span class="benefit-stat-label">対話時間</span>
+              </div>
+            </div>
+            <div class="benefit-text">
+              <h3 class="benefit-card-title">もう少し、話を聞いてあげられる</h3>
+              <div class="benefit-voice">
+                <span class="voice-quote">「ありがとう、先生」</span>
+              </div>
+              <p class="benefit-detail">記録ではなく、患者さんに向き合う時間</p>
             </div>
           </div>
 
-          <div class="benefit-item">
-            <div class="benefit-icon">🎯</div>
-            <div class="benefit-content">
-              <h3 class="benefit-title">教育に時間を使える</h3>
-              <p class="benefit-description">
-                月16時間の削減。週に換算すると、約2時間。<br><br>
-                この時間を、教育に。<br><br>
-                『研修医に、じっくり指導できる』<br>
-                『カンファレンスの準備ができる』<br>
-                『症例検討会で、深い議論ができる』<br><br>
-                次世代を育てる時間が、確保できるようになります。<br><br>
-                <strong class="highlight">週2時間の指導時間確保</strong>
-              </p>
+          <!-- カード2: 教育の時間 -->
+          <div class="benefit-card">
+            <div class="benefit-visual">
+              <div class="benefit-image-placeholder education">
+                <p>指導医と研修医</p>
+                <span class="placeholder-note">爽やかなブルー～グリーン系<br>右上にスペース確保</span>
+              </div>
+              <div class="benefit-stat-overlay">
+                <span class="benefit-number">週<span class="benefit-number-small">2</span><span class="benefit-unit">時間</span></span>
+                <span class="benefit-stat-label">指導時間</span>
+              </div>
+            </div>
+            <div class="benefit-text">
+              <h3 class="benefit-card-title">じっくり、次世代を育てられる</h3>
+              <div class="benefit-voice">
+                <span class="voice-quote">「先生のような医師になりたい」</span>
+              </div>
+              <p class="benefit-detail">教育に使える、確かな時間</p>
             </div>
           </div>
 
-          <div class="benefit-item">
-            <div class="benefit-icon">🎯</div>
-            <div class="benefit-content">
-              <h3 class="benefit-title">研究の時間が確保できる</h3>
-              <p class="benefit-description">
-                年間192時間の削減。これは、英語論文1-2本分の執筆時間。<br><br>
-                この時間を、研究に。<br><br>
-                『症例報告を、まとめられる』<br>
-                『学会発表の準備ができる』<br>
-                『英語論文を、1本書き上げられる』<br><br>
-                医師としてのキャリア形成に、必要な時間が戻ってきます。<br><br>
-                <strong class="highlight-large">年192時間 = 英語論文1-2本分</strong>
-              </p>
+          <!-- カード3: 研究の時間 -->
+          <div class="benefit-card">
+            <div class="benefit-visual">
+              <div class="benefit-image-placeholder research">
+                <p>論文執筆・研究</p>
+                <span class="placeholder-note">知的な紫～青系<br>右上にスペース確保</span>
+              </div>
+              <div class="benefit-stat-overlay">
+                <span class="benefit-number">年<span class="benefit-number-small">192</span><span class="benefit-unit">時間</span></span>
+                <span class="benefit-stat-label">論文1-2本分</span>
+              </div>
+            </div>
+            <div class="benefit-text">
+              <h3 class="benefit-card-title">あなたのキャリアが、動き出す</h3>
+              <div class="benefit-voice">
+                <span class="voice-quote">「論文、アクセプトされました」</span>
+              </div>
+              <p class="benefit-detail">研究者としての、確かな一歩</p>
             </div>
           </div>
+        </div>
+
+        <!-- 感情的クロージング -->
+        <div class="benefits-closing">
+          <p class="closing-message">あなたが医師になった理由を、思い出してください。</p>
+          <p class="closing-emphasis">記録ではなく、患者さんのために。</p>
         </div>
       </div>
     </section>
