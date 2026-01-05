@@ -1,7 +1,11 @@
 
 # Large video files for development only
+# Exclude movie folder (development videos)
 movie/
+# Exclude large development videos, but allow production videos
 videos/*.mp4
+!videos/koereq_manual.mp4
+!videos/コエレク実際の使用動画.mp4
 videos/*.MOV
-*.mp4
-*.MOV
+# Allow production videos in root and videos folder
+!videos/*.mp4
