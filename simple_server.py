@@ -31,6 +31,14 @@ class SilentHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(Path(__file__).parent.resolve()), **kwargs)
 
+    def end_headers(self):
+        # Prevent aggressive caching so local preview always reflects edits.
+        # Browsers can cache "/" very strongly; this makes http://127.0.0.1:8000/ reflect latest files.
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        super().end_headers()
+
     def log_message(self, format, *args):
         # Keep console quiet; comment out to debug
         pass

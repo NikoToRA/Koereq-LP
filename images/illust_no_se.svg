@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="SE負担なしで導入できる">
+  <!-- Clean medical flat illustration (no strokes) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E8F1FF"/>
+      <stop offset="1" stop-color="#EAFBF1"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="90" y="110" width="720" height="380" rx="72" fill="url(#bg)"/>
+  <circle cx="690" cy="230" r="120" fill="#DBEAFE" opacity="0.6"/>
+  <circle cx="240" cy="400" r="150" fill="#DCFCE7" opacity="0.55"/>
+
+  <!-- cloud -->
+  <g transform="translate(160 210)">
+    <path d="M170 214c-54 0-98-38-98-86 0-40 30-74 70-84 14-36 52-62 96-62 50 0 92 34 102 80 46 6 82 42 82 86 0 48-44 86-98 86H170Z" fill="#EFF6FF"/>
+    <rect x="118" y="132" width="210" height="18" rx="9" fill="#E5E7EB" opacity="0.95"/>
+    <rect x="118" y="160" width="164" height="16" rx="8" fill="#E5E7EB" opacity="0.95"/>
+    <circle cx="316" cy="168" r="6" fill="#22C55E" opacity="0.8"/>
+  </g>
+
+  <!-- simplified gear -->
+  <g transform="translate(520 170)">
+    <circle cx="150" cy="150" r="110" fill="#F1F5F9"/>
+    <rect x="142" y="16" width="16" height="44" rx="8" fill="#CBD5E1"/>
+    <rect x="142" y="240" width="16" height="44" rx="8" fill="#CBD5E1"/>
+    <rect x="16" y="142" width="44" height="16" rx="8" fill="#CBD5E1"/>
+    <rect x="240" y="142" width="44" height="16" rx="8" fill="#CBD5E1"/>
+    <rect x="56" y="56" width="38" height="16" rx="8" fill="#CBD5E1" transform="rotate(-45 75 64)"/>
+    <rect x="206" y="56" width="38" height="16" rx="8" fill="#CBD5E1" transform="rotate(45 225 64)"/>
+    <rect x="56" y="228" width="38" height="16" rx="8" fill="#CBD5E1" transform="rotate(45 75 236)"/>
+    <rect x="206" y="228" width="38" height="16" rx="8" fill="#CBD5E1" transform="rotate(-45 225 236)"/>
+    <circle cx="150" cy="150" r="54" fill="#E2E8F0"/>
+    <circle cx="150" cy="150" r="24" fill="#FFFFFF"/>
+  </g>
+
+  <!-- check badge -->
+  <g transform="translate(610 356)">
+    <circle cx="74" cy="74" r="74" fill="url(#accent)"/>
+    <path d="M52 76c-6-6-16-6-22 0s-6 16 0 22l18 18c6 6 16 6 22 0l58-58c6-6 6-16 0-22s-16-6-22 0L58 83Z" fill="#FFFFFF" opacity="0.98"/>
+  </g>
+</svg>
+

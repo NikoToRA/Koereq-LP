@@ -1,0 +1,7 @@
+
+# Large video files for development only
+movie/
+videos/*.mp4
+videos/*.MOV
+*.mp4
+*.MOV

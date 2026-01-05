@@ -4,9 +4,16 @@
    タブレット（641px - 1024px）
 ======================================== */
 @media (max-width: 1024px) {
+
   /* 動画はタブレット以下で非表示（静止画にフォールバック） */
-  .hero-bg-video { display: none; }
-  .hero-section { background-image: var(--hero-image); }
+  .hero-bg-video {
+    display: none;
+  }
+
+  .hero-section {
+    background-image: var(--hero-image);
+  }
+
   :root {
     --text-6xl: 56px;
     --text-5xl: 40px;
@@ -18,7 +25,10 @@
   .hero-cta {
     flex-direction: column;
   }
-  .hero-cta--bottom { bottom: 6vh; }
+
+  .hero-cta--bottom {
+    bottom: 6vh;
+  }
 
   .hero-numbers {
     flex-wrap: wrap;
@@ -64,7 +74,8 @@
   }
 
   .comparison-arrow {
-    transform: rotate(90deg);
+    /* "コエレクなら" は縦積み前提で下向き表示なので回転させない */
+    transform: none;
   }
 
   .arrow-logo {
@@ -84,9 +95,18 @@
    モバイル（max-width: 640px）
 ======================================== */
 @media (max-width: 640px) {
+
   /* さらにモバイルではCTAを大きめに */
-  .hero-cta .cta-button-primary { font-size: var(--text-lg); padding: 16px 28px; }
-  .hero-cta .cta-button-secondary { font-size: var(--text-base); padding: 12px 24px; }
+  .hero-cta .cta-button-primary {
+    font-size: var(--text-lg);
+    padding: 16px 28px;
+  }
+
+  .hero-cta .cta-button-secondary {
+    font-size: var(--text-base);
+    padding: 12px 24px;
+  }
+
   :root {
     --text-6xl: 40px;
     --text-5xl: 32px;
@@ -99,6 +119,39 @@
 
   .container {
     padding: 0 var(--spacing-md);
+  }
+
+  /* Section 8: 賢い先生に選ばれる3つの理由（モバイルは縦並びで読みやすく） */
+  .reasons-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reason-item {
+    text-align: left;
+    padding: 20px 18px;
+  }
+
+  .reason-number {
+    margin: 0 0 12px 0;
+  }
+
+  .reason-title {
+    line-height: 1.35;
+  }
+
+  .reason-description {
+    line-height: 1.75;
+  }
+
+  /* Section 4: Before/After（モバイルは回転させず、横書きのまま表示） */
+  .comparison-arrow {
+    transform: none;
+  }
+
+  .arrow-text {
+    white-space: normal;
+    word-break: keep-all;
   }
 
   /* ヘッダー */
@@ -117,23 +170,48 @@
 
   /* ヒーローセクション */
   .hero-section {
-    padding: var(--spacing-2xl) 0;
-    padding-top: calc(var(--spacing-2xl) + 60px);
+    /* NOTE:
+       LP本体は画像＋オーバーレイ（.hero-text-overlay / .hero-logo-overlay）で構成しているため、
+       ここで大きなpadding-topを入れると「画像だけ下にずれて」オーバーレイが位置ズレします。 */
+    padding: 0 16px;
+    padding-top: 0;
   }
 
-  .hero-headline { font-size: clamp(20px, 7vw, var(--text-4xl)); }
+  .hero-headline {
+    font-size: clamp(20px, 7vw, var(--text-4xl));
+  }
 
   .hero-subheadline {
     font-size: var(--text-xl);
   }
 
-  .hero-tagline-pill { font-size: var(--text-sm); padding: 6px 12px; }
-  .hero-stats { flex-wrap: wrap; gap: 6px; }
-  .stat-badge { padding: 6px 10px; }
-  .stat-badge .label { font-size: var(--text-xs); }
-  .stat-badge .value { font-size: var(--text-base); }
+  .hero-tagline-pill {
+    font-size: var(--text-sm);
+    padding: 6px 12px;
+  }
 
-  .hero-cta { flex-direction: column; gap: var(--spacing-sm); }
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .stat-badge {
+    padding: 6px 10px;
+  }
+
+  .stat-badge .label {
+    font-size: var(--text-xs);
+  }
+
+  .stat-badge .value {
+    font-size: var(--text-base);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
   .hero-cta--bottom {
     bottom: calc(env(safe-area-inset-bottom) + 12px);
     left: 50%;
@@ -424,12 +502,90 @@
     min-height: 250px;
     font-size: var(--text-sm);
   }
+
+  /* Enhanced Video Testimonial Block (Mobile) */
+  .video-testimonial-block {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  /* Disable reverse visual order on mobile (stack naturally) */
+  .video-testimonial-block.reverse-layout {
+    direction: ltr;
+  }
+
+  .testimonial-heading {
+    font-size: 20px;
+  }
+}
+
+/* ========================================
+   モバイル: 導入実績の数字（80% / 16時間）のはみ出し対策
+   - 横並びを維持すると溢れるため、モバイルは縦積みで見切れゼロにする
+======================================== */
+@media (max-width: 640px) {
+  .stats {
+    padding: 0 8px;
+  }
+
+  .stat-inline {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stat-group {
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-arrow {
+    width: 88px;
+    transform: rotate(90deg);
+  }
+
+  .stat-main {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-size: clamp(56px, 18vw, 92px);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
+
+  .stat-unit {
+    margin-left: 0;
+    font-size: clamp(20px, 5.4vw, 26px);
+  }
+
+  .stat-top {
+    font-size: var(--text-sm);
+  }
+
+  .stat-suffix,
+  .stat-postfix {
+    font-size: var(--text-sm);
+  }
+
+  .stat-postfix {
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .stat-sub {
+    font-size: var(--text-sm);
+  }
 }
 
 /* ========================================
    タッチデバイス対応
 ======================================== */
 @media (hover: none) and (pointer: coarse) {
+
   .cta-button-primary,
   .cta-button-secondary,
   .cta-button-header {
@@ -446,6 +602,7 @@
    印刷用スタイル
 ======================================== */
 @media print {
+
   .header-fixed,
   .footer,
   .cta-button-primary,
@@ -470,12 +627,37 @@
     page-break-inside: avoid;
   }
 }
-  /* 導入実績の数字 */
-  .stat-inline { gap: 12px; }
-  .stat-arrow { width: clamp(70px, 16vw, 110px); }
-  .stat-number { font-size: clamp(64px, 18vw, 112px); }
-  .stat-number .unit { font-size: 0.33em; }
-  .stat-top { font-size: var(--text-xs); }
-  .stat-suffix, .stat-postfix { font-size: var(--text-base); }
-  .stat-sub { font-size: var(--text-sm); }
-  .stat-postfix { font-size: var(--text-base); }
+
+/* 導入実績の数字 */
+.stat-inline {
+  gap: 12px;
+}
+
+.stat-arrow {
+  width: clamp(70px, 16vw, 110px);
+}
+
+.stat-number {
+  font-size: clamp(64px, 18vw, 112px);
+}
+
+.stat-number .unit {
+  font-size: 0.33em;
+}
+
+.stat-top {
+  font-size: var(--text-xs);
+}
+
+.stat-suffix,
+.stat-postfix {
+  font-size: var(--text-base);
+}
+
+.stat-sub {
+  font-size: var(--text-sm);
+}
+
+.stat-postfix {
+  font-size: var(--text-base);
+}

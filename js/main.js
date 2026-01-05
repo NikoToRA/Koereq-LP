@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // 数字カウントアップアニメーション
   // ========================================
   function animateNumber(element, target, suffix = '', duration = 2000) {
-    const start = 0;
+    const startText = (element.textContent || '').trim();
+    const startMatch = startText.match(/\d+/);
+    const start = startMatch ? parseInt(startMatch[0], 10) : 0;
     const increment = target / (duration / 16);
     let current = start;
 
@@ -46,19 +48,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 16);
   }
 
-  // 数値表示要素を監視してアニメーション実行
-  const numberObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.dataset.animated) {
-        const element = entry.target;
-        const targetValue = parseInt(element.dataset.target);
-        const suffix = element.dataset.suffix || '';
+  const prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        animateNumber(element, targetValue, suffix);
-        element.dataset.animated = 'true';
-      }
-    });
-  }, { threshold: 0.5 });
+  function triggerCountUp(element) {
+    if (!element || element.dataset.animated) return;
+
+    const targetValue = parseInt(element.dataset.target, 10);
+    const suffix = element.dataset.suffix || '';
+
+    if (!Number.isFinite(targetValue)) return;
+
+    if (prefersReducedMotion) {
+      element.textContent = String(targetValue) + suffix;
+      element.dataset.animated = 'true';
+      return;
+    }
+
+    animateNumber(element, targetValue, suffix);
+    element.dataset.animated = 'true';
+  }
+
+  // 数値表示要素を監視してアニメーション実行（未対応環境のフォールバックあり）
+  const canUseIntersectionObserver = 'IntersectionObserver' in window;
+  const numberObserver = canUseIntersectionObserver
+    ? new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              triggerCountUp(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      )
+    : null;
 
   // カウントアップ対象要素
   document.querySelectorAll('.stat-number').forEach(el => {
@@ -67,8 +91,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (match) {
       el.dataset.target = match[0];
       el.dataset.suffix = text.replace(match[0], '');
-      el.textContent = '0' + el.dataset.suffix;
-      numberObserver.observe(el);
+      // 初期表示はそのまま（80/16など）にしておく。
+
+      // 基本はスクロールで起動。Observerが使えない/発火しない環境でも確実に表示されるように保険を入れる。
+      if (numberObserver) {
+        numberObserver.observe(el);
+      } else {
+        // 古い環境: アニメーションなし（初期表示の数値を保持）
+      }
+
+      // NOTE:
+      // 以前は「0→目標値」のアニメーションを強制起動していましたが、
+      // 環境によってはアニメーションが発火せず“0のまま”になるリスクがあるため、
+      // 初期表示の数値（80/16など）を優先して保持します。
     }
   });
 
@@ -98,6 +133,103 @@ document.addEventListener('DOMContentLoaded', function() {
         toggle.style.transform = 'rotate(180deg)';
       }
     });
+  });
+
+  // ========================================
+  // 動画モーダル（YouTube / mp4：クリックで再生 / 閉じたら停止）
+  // ========================================
+  const videoModal = document.querySelector('.js-video-modal');
+  const videoModalIframe = document.querySelector('.js-video-modal-iframe');
+  const videoModalVideo = document.querySelector('.js-video-modal-video');
+
+  function openVideoModal({ videoId, videoSrc, titleText }) {
+    if (!videoModal) return;
+
+    const safeTitle = titleText || '動画を再生';
+
+    // Reset both players first
+    if (videoModalIframe) {
+      videoModalIframe.classList.remove('is-active');
+      videoModalIframe.setAttribute('title', '');
+      videoModalIframe.setAttribute('src', '');
+    }
+    if (videoModalVideo) {
+      videoModalVideo.classList.remove('is-active');
+      try {
+        videoModalVideo.pause();
+      } catch (_) {}
+      videoModalVideo.removeAttribute('src');
+      videoModalVideo.load();
+    }
+
+    if (videoSrc && videoModalVideo) {
+      videoModalVideo.setAttribute('src', videoSrc);
+      videoModalVideo.classList.add('is-active');
+      // User gesture (click) should allow play; ignore failures (autoplay policies etc.)
+      try {
+        const maybePromise = videoModalVideo.play();
+        if (maybePromise && typeof maybePromise.catch === 'function') {
+          maybePromise.catch(() => {});
+        }
+      } catch (_) {}
+    } else if (videoId && videoModalIframe) {
+      const src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&modestbranding=1`;
+      videoModalIframe.setAttribute('src', src);
+      videoModalIframe.setAttribute('title', safeTitle);
+      videoModalIframe.classList.add('is-active');
+    } else {
+      // Nothing to play
+      return;
+    }
+
+    videoModal.classList.add('is-open');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    if (!videoModal) return;
+
+    videoModal.classList.remove('is-open');
+    videoModal.setAttribute('aria-hidden', 'true');
+
+    // Stop playback (YouTube)
+    if (videoModalIframe) {
+      videoModalIframe.classList.remove('is-active');
+      videoModalIframe.setAttribute('src', '');
+      videoModalIframe.setAttribute('title', '');
+    }
+
+    // Stop playback (mp4)
+    if (videoModalVideo) {
+      videoModalVideo.classList.remove('is-active');
+      try {
+        videoModalVideo.pause();
+      } catch (_) {}
+      videoModalVideo.removeAttribute('src');
+      videoModalVideo.load();
+    }
+
+    document.documentElement.style.overflow = '';
+  }
+
+  document.querySelectorAll('.js-video-modal-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const videoId = trigger.getAttribute('data-video-id');
+      const videoSrc = trigger.getAttribute('data-video-src');
+      const titleText = trigger.getAttribute('data-video-title') || '動画を再生';
+      openVideoModal({ videoId, videoSrc, titleText });
+    });
+  });
+
+  document.querySelectorAll('.js-video-modal-close').forEach((closer) => {
+    closer.addEventListener('click', closeVideoModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal?.classList.contains('is-open')) {
+      closeVideoModal();
+    }
   });
 
   // ========================================
