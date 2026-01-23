@@ -168,6 +168,11 @@
     font-size: var(--text-sm);
   }
 
+  /* モバイル用スリムヘッダー */
+  .header-fixed {
+    padding: 8px 0;
+  }
+
   /* ヒーローセクション */
   .hero-section {
     /* NOTE:
@@ -175,6 +180,8 @@
        ここで大きなpadding-topを入れると「画像だけ下にずれて」オーバーレイが位置ズレします。 */
     padding: 0 16px;
     padding-top: 0;
+    margin-top: 56px;
+    /* モバイルヘッダー高さ(約53px) + α */
   }
 
   .hero-headline {

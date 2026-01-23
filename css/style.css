@@ -223,7 +223,7 @@
   display: block;
   padding: 0 32px;
   /* 左右に余白 */
-  margin: 64px auto 0;
+  margin: 74px auto 0;
   /* 上部ヘッダー分 + 中央配置 */
   background: var(--white);
 }
