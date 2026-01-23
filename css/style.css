@@ -71,10 +71,10 @@
   --spacing-lg: 32px;
   --spacing-xl: 48px;
   --spacing-2xl: 64px;
-  
+
   /* ヒーロー背景既定（画像未設定時のグラデーション） */
   --hero-image: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
-  
+
   /* アクセント */
   --accent-red: #EF4444;
 }
@@ -126,7 +126,7 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
 }
 
 .header-content {
@@ -142,7 +142,7 @@
 }
 
 .logo-image {
-  height: 40px;
+  height: 32px;
   width: auto;
   display: block;
 }
@@ -150,7 +150,7 @@
 .cta-button-header {
   background: var(--wonder-blue);
   color: var(--white);
-  padding: 12px 24px;
+  padding: 8px 16px;
   border-radius: 8px;
   font-weight: 700;
   transition: all 0.3s ease;
@@ -217,11 +217,14 @@
 .hero-section {
   position: relative;
   width: 100%;
-  max-width: 1400px; /* PC用最大幅 */
+  max-width: 1400px;
+  /* PC用最大幅 */
   min-height: auto;
   display: block;
-  padding: 0 32px; /* 左右に余白 */
-  margin: 80px auto 0; /* 上部ヘッダー分 + 中央配置 */
+  padding: 0 32px;
+  /* 左右に余白 */
+  margin: 64px auto 0;
+  /* 上部ヘッダー分 + 中央配置 */
   background: var(--white);
 }
 
@@ -266,8 +269,10 @@
   height: auto;
   display: block;
   object-fit: cover;
-  border-radius: 16px; /* PC・タブレット用角丸 */
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); /* 軽い影で浮き上がる */
+  border-radius: 16px;
+  /* PC・タブレット用角丸 */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  /* 軽い影で浮き上がる */
   animation: zoomIn 1.2s ease-out forwards;
 }
 
@@ -276,6 +281,7 @@
     transform: scale(1.1);
     opacity: 0.8;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -296,7 +302,8 @@
 
 .hero-text-main {
   width: auto;
-  max-width: 91.96%; /* 5%縮小: 96.8% × 0.95 = 91.96% */
+  max-width: 91.96%;
+  /* 5%縮小: 96.8% × 0.95 = 91.96% */
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
@@ -308,6 +315,7 @@
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(-20px);
@@ -329,7 +337,8 @@
 
 .hero-logo {
   width: auto;
-  max-width: 52.5%; /* 50% × 1.05 = 52.5% */
+  max-width: 52.5%;
+  /* 50% × 1.05 = 52.5% */
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
@@ -341,9 +350,11 @@
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
-    transform: translateY(-4px); /* -20px + 16px = -4px */
+    transform: translateY(-4px);
+    /* -20px + 16px = -4px */
   }
 }
 
@@ -373,7 +384,8 @@
   padding: var(--spacing-2xl);
   text-align: center;
   color: var(--gray-500);
-  min-height: 520px; /* ヒーロー画像領域を拡大 */
+  min-height: 520px;
+  /* ヒーロー画像領域を拡大 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -394,7 +406,7 @@
 
 .hero-section .hero-headline {
   color: var(--white);
-  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero-tagline-pill {
@@ -423,8 +435,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255,255,255,0.95);
-  background: rgba(0,0,0,0.35);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   padding: 6px 12px;
@@ -443,7 +455,7 @@
 }
 
 .stat-sep {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 800;
 }
 
@@ -457,13 +469,14 @@
 /* 強調グラデーションCTA */
 .cta-button-primary.gradient {
   background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #34C759 100%);
-  box-shadow: 0 10px 24px rgba(37,99,235,0.35), 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35), 0 2px 8px rgba(0, 0, 0, 0.12);
   border: 0;
 }
+
 .cta-button-primary.gradient:hover {
   filter: brightness(1.05);
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(37,99,235,0.45), 0 4px 12px rgba(0,0,0,0.16);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45), 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 /* CTA 二段組（メイン/サブ） */
@@ -471,6 +484,7 @@
   display: block;
   line-height: 1.2;
 }
+
 .cta-button-primary .cta-sub {
   display: block;
   font-size: var(--text-sm);
@@ -480,8 +494,10 @@
 
 .hero-cta-wrapper {
   /* Desktop/tablet: place CTA in normal flow (avoid covering sections) */
-  position: relative; /* create stacking context so z-index works reliably */
-  z-index: 2000; /* keep CTA above hero/sections, below video modal */
+  position: relative;
+  /* create stacking context so z-index works reliably */
+  z-index: 2000;
+  /* keep CTA above hero/sections, below video modal */
   display: flex;
   justify-content: center;
   padding: 0 16px;
@@ -503,6 +519,7 @@
 
 /* スマホ対応 */
 @media (max-width: 768px) {
+
   /* Reserve space for the fixed CTA so it never overlaps content */
   body {
     padding-bottom: calc(92px + env(safe-area-inset-bottom));
@@ -516,7 +533,8 @@
     transform: none;
     width: auto;
     margin: 0;
-    z-index: 2000; /* stay above all content */
+    z-index: 2000;
+    /* stay above all content */
   }
 
   .hero-cta-wrapper .cta-button-primary {
@@ -536,12 +554,19 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-10px);
   }
+
   60% {
     transform: translateY(-5px);
   }
@@ -732,12 +757,14 @@
 .stat-inline {
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* ブロック全体を中央寄せ */
+  justify-content: center;
+  /* ブロック全体を中央寄せ */
   gap: var(--spacing-md);
 }
 
 .stat-number {
-  font-size: clamp(80px, 12vw, 160px); /* 大きさはキープ */
+  font-size: clamp(80px, 12vw, 160px);
+  /* 大きさはキープ */
   font-weight: 900;
   font-family: var(--font-numbers);
   line-height: 0.9;
@@ -792,12 +819,18 @@
   height: auto;
   vertical-align: middle;
 }
-.stat-arrow svg { width: 100%; height: auto; display: block; }
+
+.stat-arrow svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .stat-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 80%に左合わせ */
+  align-items: flex-start;
+  /* 80%に左合わせ */
   text-align: left;
 }
 
@@ -808,14 +841,17 @@
 }
 
 .social-proof-section .stat-top {
-  font-size: clamp(21px, 2.4vw, 27px) !important; /* 1.5倍: 14px→21px, 18px→27px */
+  font-size: clamp(21px, 2.4vw, 27px) !important;
+  /* 1.5倍: 14px→21px, 18px→27px */
   font-weight: 700;
-  color: var(--deep-navy); /* 削減と同じ色 */
+  color: var(--deep-navy);
+  /* 削減と同じ色 */
   margin-bottom: 6px;
 }
 
 .stat-suffix {
-  font-size: clamp(14px, 1.6vw, 18px); /* の自由を と同サイズ */
+  font-size: clamp(14px, 1.6vw, 18px);
+  /* の自由を と同サイズ */
   font-weight: 700;
   color: var(--deep-navy);
 }
@@ -841,7 +877,8 @@
    Section 3: 問題提起（圧縮版）
 ======================================== */
 .problem-section {
-  padding: 80px 0; /* スクロール削減のため128px→80px */
+  padding: 80px 0;
+  /* スクロール削減のため128px→80px */
   background: var(--bg-secondary);
 }
 
@@ -1364,7 +1401,8 @@
   }
 
   .arrow-text {
-    white-space: normal; /* allow natural wrapping (horizontal) */
+    white-space: normal;
+    /* allow natural wrapping (horizontal) */
     word-break: keep-all;
     line-height: 1.2;
     margin-bottom: 0;
@@ -1384,9 +1422,12 @@
 }
 
 @keyframes bounce-arrow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(10px);
   }
@@ -1883,11 +1924,12 @@
 }
 
 .video-testimonial-block.reverse-layout {
-  direction: rtl; /* Switch visual order */
+  direction: rtl;
+  /* Switch visual order */
 }
 
 /* Reset text direction for content inside rtl container */
-.video-testimonial-block.reverse-layout > * {
+.video-testimonial-block.reverse-layout>* {
   direction: ltr;
 }
 
@@ -1923,7 +1965,8 @@
   padding: 24px;
   background: linear-gradient(135deg, #FEFCE8 0%, #FFF7ED 100%);
   border-radius: 12px;
-  border-left: 6px solid #F59E0B; /* Amber for attention */
+  border-left: 6px solid #F59E0B;
+  /* Amber for attention */
   position: relative;
 }
 
@@ -1941,7 +1984,8 @@
 .quote-role {
   font-size: 14px;
   font-weight: 700;
-  color: #D97706; /* Dark amber */
+  color: #D97706;
+  /* Dark amber */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0 0 12px;
@@ -2148,6 +2192,7 @@
 }
 
 @media (max-width: 640px) {
+
   /* Prevent fixed bottom CTA from covering pricing CTAs */
   .pricing-section {
     padding-bottom: calc(var(--section-spacing) + 110px);
@@ -2199,7 +2244,8 @@
   position: fixed;
   inset: 0;
   display: none;
-  z-index: 5000; /* must stay above fixed CTA */
+  z-index: 5000;
+  /* must stay above fixed CTA */
 }
 
 .video-modal.is-open {
@@ -2715,7 +2761,8 @@
 
 .flow-step {
   flex: 1 1 0;
-  min-width: 0; /* allow shrinking to fit one-row layouts */
+  min-width: 0;
+  /* allow shrinking to fit one-row layouts */
   background: var(--white);
   border-radius: 16px;
   padding: 28px 14px;
@@ -2838,7 +2885,8 @@
   }
 
   .flow-arrow {
-    display: none; /* avoid text overlap on mobile */
+    display: none;
+    /* avoid text overlap on mobile */
   }
 
   .flow-conclusion {
