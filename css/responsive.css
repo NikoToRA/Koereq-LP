@@ -594,10 +594,16 @@
 @media (hover: none) and (pointer: coarse) {
 
   .cta-button-primary,
-  .cta-button-secondary,
-  .cta-button-header {
+  .cta-button-secondary {
     padding: 16px 24px;
     min-height: 48px;
+  }
+
+  /* ヘッダーボタンはコンパクトに保つ */
+  .cta-button-header {
+    padding: 8px 14px;
+    min-height: auto;
+    font-size: 13px;
   }
 
   .faq-question {

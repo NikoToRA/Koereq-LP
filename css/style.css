@@ -156,6 +156,12 @@
   padding: var(--spacing-sm) 0;
 }
 
+/* ヘッダー用コンテナは画面端まで広げる */
+.header-fixed .container {
+  max-width: 100%;
+  padding: 0 32px;
+}
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -312,13 +318,14 @@
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: 900px;
 }
 
 .hero-image {
   width: 100%;
   max-width: 100%;
   height: auto;
+  max-height: 70vh;
   display: block;
   object-fit: cover;
   border-radius: 16px;
@@ -411,6 +418,11 @@
 
 /* スマホ向け: 画面いっぱいに表示 */
 @media (max-width: 768px) {
+  /* セクション間隔を縮小 */
+  :root {
+    --section-spacing: 48px;
+  }
+
   .hero-section {
     padding: 60px 0 0;
     align-items: center;
@@ -418,6 +430,33 @@
     overflow: hidden;
     background-image: none;
     background-color: var(--white);
+  }
+
+  /* 導入実績セクションの上部余白を縮小 */
+  .social-proof-section {
+    padding-top: 16px;
+    padding-bottom: 20px;
+  }
+
+  /* コンテンツオーバーレイの内部パディング */
+  .content-overlay {
+    padding-top: 0;
+  }
+
+  /* セクションタイトルの余白を縮小 */
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  .section-title--lined {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  /* ヘッダーのCTAボタンを小さく */
+  .cta-button-header {
+    padding: 6px 12px;
+    font-size: 13px;
   }
 
   .hero-image-wrapper {
