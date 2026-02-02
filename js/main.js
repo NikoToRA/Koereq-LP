@@ -3,6 +3,30 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   // ========================================
+  // モバイル固定CTA表示制御（スクロール後に表示）
+  // ========================================
+  const heroCta = document.querySelector('.hero-cta-wrapper');
+  const topVideoProof = document.querySelector('.top-video-proof');
+
+  if (heroCta && topVideoProof) {
+    // スクロール位置で制御
+    function checkCtaVisibility() {
+      const rect = topVideoProof.getBoundingClientRect();
+      // top-video-proofの下端が画面上端を超えたらCTAを表示
+      if (rect.bottom < 0) {
+        heroCta.classList.add('visible');
+      } else {
+        heroCta.classList.remove('visible');
+      }
+    }
+
+    // スクロールイベントで監視
+    window.addEventListener('scroll', checkCtaVisibility, { passive: true });
+    // 初期状態チェック
+    checkCtaVisibility();
+  }
+
+  // ========================================
   // スクロールアニメーション（Intersection Observer）
   // ========================================
   const observerOptions = {

@@ -77,17 +77,19 @@
       <!-- SEO用H1タグ -->
       <h1 class="visually-hidden">救急外来の記録時間80%削減｜音声入力カルテ コエレク</h1>
 
-      <!-- ヒーロー画像 -->
-      <img src="images/hero_-title.png" alt="コエレク - 救急外来の時間を取り戻す音声入力システム" class="hero-image">
+      <!-- ヒーロー画像とテキストのラッパー -->
+      <div class="hero-image-wrapper">
+        <img src="images/hero_-title.png" alt="コエレク - 救急外来の時間を取り戻す音声入力システム" class="hero-image">
 
-      <!-- 浮かび上がるテキスト画像 -->
-      <div class="hero-text-overlay">
-        <img src="images/title_qq.png" alt="あなたの時間を、取り戻す" class="hero-text-main">
-      </div>
+        <!-- 浮かび上がるテキスト画像（上部・人物にギリギリかかる位置） -->
+        <div class="hero-text-overlay">
+          <img src="images/title_qq.png" alt="あなたの時間を、取り戻す" class="hero-text-main">
+        </div>
 
-      <!-- コエレクロゴ -->
-      <div class="hero-logo-overlay">
-        <img src="images/koereq.png" alt="コエレク" class="hero-logo">
+        <!-- コエレクロゴ（真ん中の横帯） -->
+        <div class="hero-logo-overlay">
+          <img src="images/koereq.png" alt="コエレク" class="hero-logo">
+        </div>
       </div>
 
       <!-- スクロール誘導 -->
@@ -96,74 +98,95 @@
       </div>
     </section>
 
-    <!-- フローティングCTAボタン（全ページ共通） -->
-    <div class="hero-cta-wrapper">
-      <a href="https://koereq.com/contact" class="cta-button-primary gradient large">
-        <span class="cta-main">救急スタッフのカルテ残業を0に</span>
-        <span class="cta-sub">月16時間を取り戻す（無料デモ）</span>
-      </a>
-    </div>
+    <!-- ヒーロー以降のコンテンツ（ヒーロー画像の上にかぶさる） -->
+    <div class="content-overlay">
 
     <!-- Section 2: 導入実績 -->
     <section id="social-proof" class="social-proof-section">
       <div class="container">
-        <h2 class="section-title">全国の先進的医療機関が選んだ、<br>最もシンプルな音声入力</h2>
+        <h2 class="section-title section-title--lined">全国の先進的医療機関が選んだ、<br>最もシンプルな音声入力</h2>
 
-        <div class="hospital-logos">
-          <div class="logo-item">
-            <img src="images/satsutoku_logo.jpg" alt="札幌徳洲会病院" class="hospital-logo">
-          </div>
-          <div class="logo-item">
-            <img src="images/kinchu_logo.png" alt="勤医協中央病院" class="hospital-logo">
-          </div>
-          <div class="logo-item">
-            <img src="images/gobyou_logo.png" alt="函館五稜郭病院" class="hospital-logo">
+        <div class="hospital-logos-wrapper">
+          <div class="hospital-logos-track">
+            <!-- 1セット目 -->
+            <div class="logo-item">
+              <img src="images/satsutoku_logo.jpg" alt="札幌徳洲会病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/kinchu_logo.png" alt="勤医協中央病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/goryoukaku.png" alt="函館五稜郭病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/kimura.png" alt="木村病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/ohisama.png" alt="おひさまクリニック" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/suenaga.png" alt="末永病院" class="hospital-logo">
+            </div>
+            <!-- 2セット目（ループ用） -->
+            <div class="logo-item">
+              <img src="images/satsutoku_logo.jpg" alt="札幌徳洲会病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/kinchu_logo.png" alt="勤医協中央病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/goryoukaku.png" alt="函館五稜郭病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/kimura.png" alt="木村病院" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/ohisama.png" alt="おひさまクリニック" class="hospital-logo">
+            </div>
+            <div class="logo-item">
+              <img src="images/suenaga.png" alt="末永病院" class="hospital-logo">
+            </div>
           </div>
         </div>
 
         <p class="social-proof-tagline">救急医療の最前線で選ばれています</p>
 
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-inline">
-              <div class="stat-group">
-                <span class="stat-top">記録時間</span>
-                <div class="stat-main">
-                  <span class="stat-number blue">80</span>
-                  <span class="stat-unit blue">%</span>
-                  <span class="stat-suffix">削減で</span>
-                </div>
-                <span class="stat-sub">20分の記録が2分で完了</span>
-              </div>
-
-              <span class="stat-arrow" aria-hidden="true">
-                <svg viewBox="0 0 80 20" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="statGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#2563EB" />
-                      <stop offset="100%" stop-color="#34C759" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M4 10 H64" stroke="url(#statGrad)" stroke-width="6" stroke-linecap="round" />
-                  <path d="M64 4 L76 10 L64 16" fill="none" stroke="url(#statGrad)" stroke-width="6"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-
-              <div class="stat-group">
-                <div class="stat-main">
-                  <span class="stat-number red">16</span>
-                  <span class="stat-unit red">時間/月</span>
-                  <span class="stat-postfix">取り戻す</span>
-                </div>
-              </div>
+        <!-- 導入病院セクション直下の動画2本 -->
+        <div class="intro-videos-row">
+          <button type="button" class="intro-video-card js-video-modal-trigger"
+            data-video-src="videos/コエレク実際の使用動画.mp4" data-video-title="実際の救急外来での使用動画"
+            aria-label="実際の使用動画を再生">
+            <div class="intro-video-thumb">
+              <video class="intro-video-thumb-video" muted autoplay loop playsinline preload="metadata">
+                <source src="videos/コエレク実際の使用動画.mp4" type="video/mp4">
+              </video>
+                            <div class="intro-video-duration">約2分</div>
             </div>
-          </div>
+            <div class="intro-video-meta">
+              <p class="intro-video-title">実際の使用動画</p>
+            </div>
+          </button>
+          <button type="button" class="intro-video-card js-video-modal-trigger"
+            data-video-src="videos/koereq_interview_v14.mp4" data-video-title="院内救命士インタビュー"
+            aria-label="救命士インタビュー動画を再生">
+            <div class="intro-video-thumb">
+              <video class="intro-video-thumb-video" muted autoplay loop playsinline preload="metadata">
+                <source src="videos/koereq_interview_v14.mp4" type="video/mp4">
+              </video>
+                            <div class="intro-video-duration">約3分</div>
+            </div>
+            <div class="intro-video-meta">
+              <p class="intro-video-title">院内救命士が語る導入効果</p>
+            </div>
+          </button>
         </div>
 
-        <p class="stats-note">
-          ※月16時間の“時間確保”は、救急スタッフのカルテ残業を0に近づけるためのファクトです
-        </p>
+        <!-- メインメッセージ -->
+        <div class="main-message-box">
+          <p class="main-message-text"><span class="highlight-number">30</span>分の記録が、<span class="highlight-number">2</span>分で完成</p>
+          <p class="main-message-sub">誰もが簡単に、標準的なカルテを作成</p>
+        </div>
+
 
         <!-- 早めに「実例」を確認したい方へ（クリックで再生 / 離脱を増やさない） -->
         <div class="top-video-proof">
@@ -178,7 +201,7 @@
     <!-- Section 3: 問題提起（救急決裁権者向け） -->
     <section id="problem" class="problem-section emergency-manager">
       <div class="container">
-        <h2 class="section-title">救急の現場で、こう思ったことはありませんか？</h2>
+        <h2 class="section-title section-title--lined">救急現場で、<br>こう思ったことはありませんか？</h2>
         <p class="section-subtitle-emotion">「最初から、完璧に整理されたカルテが手元にあれば…」</p>
 
         <div class="reality-check">
@@ -187,32 +210,32 @@
 
         <div class="problem-list-emergency">
           <div class="problem-item-emergency">
-            <div class="problem-icon-emergency">❌</div>
+            <div class="problem-icon-emergency">×</div>
             <p class="problem-text-emergency">スタッフにより問診の質はバラつき、<br><strong>聞き漏れ・聞き直しが日常化</strong></p>
           </div>
 
           <div class="problem-item-emergency">
-            <div class="problem-icon-emergency">❌</div>
+            <div class="problem-icon-emergency">×</div>
             <p class="problem-text-emergency">夜勤・連勤で集中力が落ち、<br><strong>本来必要な情報が抜ける</strong></p>
           </div>
 
           <div class="problem-item-emergency">
-            <div class="problem-icon-emergency">❌</div>
+            <div class="problem-icon-emergency">×</div>
             <p class="problem-text-emergency">「忙しいから後で」の結果、<br><strong>不十分な情報伝達が発生</strong></p>
           </div>
 
           <div class="problem-item-emergency">
-            <div class="problem-icon-emergency">❌</div>
+            <div class="problem-icon-emergency">×</div>
             <p class="problem-text-emergency">更新されない共有カルテで、<br><strong>診察前に状況が把握できない</strong></p>
           </div>
 
           <div class="problem-item-emergency">
-            <div class="problem-icon-emergency">❌</div>
+            <div class="problem-icon-emergency">×</div>
             <p class="problem-text-emergency">診察後もカルテ記載が終わらず、<br><strong>残業が常態化</strong></p>
           </div>
 
           <div class="problem-item-emergency critical">
-            <div class="problem-icon-emergency">⚠️</div>
+            <div class="problem-icon-emergency">!</div>
             <p class="problem-text-emergency">記載漏れが原因で、<br><strong class="text-critical">責任者の訴訟リスクだけが増えていく</strong></p>
           </div>
         </div>
@@ -237,47 +260,13 @@
       </div>
     </section>
 
-    <!-- Section 3.2: 判断材料（稟議脳内整理） -->
-    <section id="director-decision" class="director-decision-section">
-      <div class="container">
-        <div class="director-decision-card">
-          <h3 class="director-decision-title">判断に必要なのは、この3点だけ</h3>
-          <div class="director-decision-grid">
-            <div class="director-decision-item">
-              <div class="director-decision-icon">📉</div>
-              <div class="director-decision-body">
-                <p class="director-decision-head">効果</p>
-                <p class="director-decision-text">月16時間を取り戻し、救急スタッフのカルテ残業を0に（時間確保のファクト）</p>
-              </div>
-            </div>
-            <div class="director-decision-item">
-              <div class="director-decision-icon">🔒</div>
-              <div class="director-decision-body">
-                <p class="director-decision-head">安全</p>
-                <p class="director-decision-text">オンプレ電子カルテでも運用可能。ガイドライン準拠で安心して導入できる</p>
-              </div>
-            </div>
-            <div class="director-decision-item">
-              <div class="director-decision-icon">⚙️</div>
-              <div class="director-decision-body">
-                <p class="director-decision-head">導入負担</p>
-                <p class="director-decision-text">ベンダー調整・改修なし。最短1ヶ月で開始でき、まず小さく試せる</p>
-              </div>
-            </div>
-          </div>
-          <div class="director-decision-cta">
-            <a href="https://koereq.com/contact" class="cta-button-secondary">無料デモで効果を確認する</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Section 4: Before/After 対比 -->
     <section id="before-after" class="before-after-section">
       <div class="container">
-        <h2 class="section-title">記録方法を、変えるだけで</h2>
+        <h2 class="section-title">記録方法を、変えるだけ</h2>
 
-        <div class="comparison-wrapper">
+        <!-- Before/After 横並び -->
+        <div class="comparison-row-wrapper">
           <!-- Before -->
           <div class="comparison-item before">
             <div class="comparison-label">Before</div>
@@ -287,18 +276,11 @@
             <div class="comparison-content">
               <h3 class="comparison-title">診察後、PCと格闘</h3>
               <ul class="comparison-list">
-                <li><span class="icon negative">❌</span>20分間、タイピング</li>
-                <li><span class="icon negative">❌</span>会話を思い出して文章化</li>
-                <li><span class="icon negative">❌</span>記録中は何もできない</li>
+                <li><span class="icon negative">×</span>30分間、タイピング</li>
+                <li><span class="icon negative">×</span>会話を思い出して文章化</li>
+                <li><span class="icon negative">×</span>記録中は何もできない</li>
               </ul>
             </div>
-          </div>
-
-          <!-- Arrow -->
-          <div class="comparison-arrow">
-            <img src="images/koereq_logo2.png" alt="コエレク" class="arrow-logo">
-            <p class="arrow-text">コエレクなら</p>
-            <div class="arrow-icon">↓</div>
           </div>
 
           <!-- After -->
@@ -310,9 +292,9 @@
             <div class="comparison-content">
               <h3 class="comparison-title">診察中、話すだけ</h3>
               <ul class="comparison-list">
-                <li><span class="icon positive">✅</span>2分で記録完了</li>
-                <li><span class="icon positive">✅</span>会話がそのまま記録に</li>
-                <li><span class="icon positive">✅</span>手が空く、時間が増える</li>
+                <li><span class="icon positive">✓</span>2分で記録完了</li>
+                <li><span class="icon positive">✓</span>会話がそのまま記録に</li>
+                <li><span class="icon positive">✓</span>手が空く、時間が増える</li>
               </ul>
             </div>
           </div>
@@ -320,93 +302,32 @@
       </div>
     </section>
 
-    <!-- Section 5: 従来の音声入力との比較 -->
-    <section id="comparison" class="comparison-table-section">
+    <!-- Section 5: 簡単3STEPでカルテが完成 -->
+    <section id="workflow" class="workflow-showcase-section">
       <div class="container">
-        <h2 class="section-title">コエレクなら叶える未来。</h2>
-        <p class="section-subtitle">従来の音声入力カルテとの決定的な違い</p>
+        <h2 class="section-title section-title--lined">簡単3STEPでカルテが完成</h2>
 
-        <!-- 比較表 -->
-        <div class="feature-comparison-table">
-          <!-- ヘッダー行 -->
-          <div class="comparison-header">
-            <div class="comparison-header-item feature-name">項目</div>
-            <div class="comparison-header-item koereq">
-              <img src="images/コエレク.png" alt="コエレク" class="koereq-logo-header">
-            </div>
-            <div class="comparison-header-item competitor">電子カルテの音声入力</div>
-          </div>
-
-          <!-- 聞き漏れ -->
-          <div class="comparison-row">
-            <div class="comparison-cell feature-name">
-              <strong>聞き漏れ</strong>
-            </div>
-            <div class="comparison-cell koereq">
-              <span class="positive-icon">✅</span>
-              <p><strong>構造化テンプレで漏れゼロへ</strong></p>
-            </div>
-            <div class="comparison-cell competitor">
-              <span class="negative-icon">❌</span>
-              <p>確認できない</p>
-            </div>
-          </div>
-
-          <!-- 情報整理 -->
-          <div class="comparison-row">
-            <div class="comparison-cell feature-name">
-              <strong>情報整理</strong>
-            </div>
-            <div class="comparison-cell koereq">
-              <span class="positive-icon">✅</span>
-              <p><strong>話すだけで構造化・要点整理</strong></p>
-            </div>
-            <div class="comparison-cell competitor">
-              <span class="negative-icon">❌</span>
-              <p>音声入力に慣れが必要</p>
-            </div>
-          </div>
-
-          <!-- 共有 -->
-          <div class="comparison-row">
-            <div class="comparison-cell feature-name">
-              <strong>共有</strong>
-            </div>
-            <div class="comparison-cell koereq">
-              <span class="positive-icon">✅</span>
-              <p><strong>スマホで即共有</strong></p>
-            </div>
-            <div class="comparison-cell competitor">
-              <span class="negative-icon">❌</span>
-              <p>共有機能なし</p>
-            </div>
-          </div>
-
-          <!-- 転記 -->
-          <div class="comparison-row highlight">
-            <div class="comparison-cell feature-name">
-              <strong>転記</strong>
-            </div>
-            <div class="comparison-cell koereq">
-              <span class="positive-icon">✅</span>
-              <p><strong>QRで一括転記</strong></p>
-            </div>
-            <div class="comparison-cell competitor">
-              <span class="negative-icon">❌</span>
-              <p>クリック数が多く面倒</p>
-            </div>
-          </div>
+        <div class="workflow-video-showcase">
+          <video class="workflow-video" muted autoplay loop playsinline>
+            <source src="videos/koereq_manual.mp4" type="video/mp4">
+          </video>
         </div>
 
-        <!-- 結論 -->
-        <div class="comparison-conclusion">
-          <p class="conclusion-text">
-            <strong>従来の音声入力</strong>は「話した内容をそのまま文字化」するだけ。<br>
-            <strong class="text-primary">コエレク</strong>は「構造化・整理・共有・転記」まで完結させる。
-          </p>
-          <p class="conclusion-emphasis">
-            これが、救急の現場が求めていた"本物のAI記録システム"です。
-          </p>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span class="step-number">1</span>
+            <span class="step-text">患者登録</span>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <span class="step-number">2</span>
+            <span class="step-text">音声入力</span>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <span class="step-number">3</span>
+            <span class="step-text">カルテ生成</span>
+          </div>
         </div>
       </div>
     </section>
@@ -426,10 +347,10 @@
             <div class="implementation-content">
               <h3 class="implementation-title">マニュアルなしで<br>スマホ一つで簡単導入</h3>
               <ul class="implementation-list">
-                <li><span class="check-icon">✅</span>看護師・研修医でも"即"使える</li>
-                <li><span class="check-icon">✅</span>必要なのはスマホだけ</li>
-                <li><span class="check-icon">✅</span>A4マニュアル1枚でスタート</li>
-                <li><span class="check-icon">✅</span>夜勤帯でも説明不要</li>
+                <li><span class="check-icon">✓</span>看護師・研修医でも"即"使える</li>
+                <li><span class="check-icon">✓</span>必要なのはスマホだけ</li>
+                <li><span class="check-icon">✓</span>A4マニュアル1枚でスタート</li>
+                <li><span class="check-icon">✓</span>夜勤帯でも説明不要</li>
               </ul>
             </div>
           </div>
@@ -442,10 +363,10 @@
             <div class="implementation-content">
               <h3 class="implementation-title">医師一人から<br>簡単導入</h3>
               <ul class="implementation-list">
-                <li><span class="check-icon">✅</span>部長の号令で一斉導入…ではなく</li>
-                <li><span class="check-icon">✅</span>まず1名の医師がトライできる</li>
-                <li><span class="check-icon">✅</span>効果を見て自然に広がっていく</li>
-                <li><span class="check-icon">✅</span>現場抵抗なくトライできる</li>
+                <li><span class="check-icon">✓</span>部長の号令で一斉導入…ではなく</li>
+                <li><span class="check-icon">✓</span>まず1名の医師がトライできる</li>
+                <li><span class="check-icon">✓</span>効果を見て自然に広がっていく</li>
+                <li><span class="check-icon">✓</span>現場抵抗なくトライできる</li>
               </ul>
             </div>
           </div>
@@ -458,10 +379,22 @@
             <div class="implementation-content">
               <h3 class="implementation-title">現場の抵抗なく<br>簡単導入・SEの負担なし</h3>
               <ul class="implementation-list">
-                <li><span class="check-icon">✅</span>電子カルテへの組み込み不要</li>
-                <li><span class="check-icon">✅</span>QRコードリーダー1台でOK</li>
-                <li><span class="check-icon">✅</span>システム改修一切なし</li>
-                <li><span class="check-icon">✅</span>導入当日から運用開始</li>
+                <li><span class="check-icon">✓</span>電子カルテへの組み込み不要</li>
+                <li><span class="check-icon">✓</span>QRコードリーダー1台でOK</li>
+                <li><span class="check-icon">✓</span>システム改修一切なし</li>
+                <li><span class="check-icon">✓</span>導入当日から運用開始</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. 救急医22年の現場経験から生まれた -->
+          <div class="implementation-card implementation-card--developer">
+            <div class="implementation-content implementation-content--full">
+              <h3 class="implementation-title">救急医22年の<br>現場経験から生まれた</h3>
+              <ul class="implementation-list">
+                <li><span class="check-icon">✓</span>開発者は現役の救急医</li>
+                <li><span class="check-icon">✓</span>「実際に使える」を最優先に設計</li>
+                <li><span class="check-icon">✓</span>現場の声を反映した継続的アップデート</li>
               </ul>
             </div>
           </div>
@@ -469,53 +402,18 @@
       </div>
     </section>
 
-    <!-- Section 6.5: 安心のセキュリティ体制 -->
-    <section id="security" class="security-main-section">
+    <!-- Section 6.5: セキュリティ（カード形式） -->
+    <section id="security" class="security-simple-section">
       <div class="container">
-        <h2 class="section-title">オンプレ電子カルテでも、安全にAIが使える理由</h2>
-        <p class="section-subtitle">QRコード転送だから実現する、完全なセキュリティ</p>
-
-        <!-- セキュリティイメージ -->
-        <div class="security-image-wrapper">
-          <img src="images/security_qr.png" alt="病院のPCにネット接続せずに、AIの恩恵が受けられる - オンプレミス電子カルテとクラウドAIの安全な連携"
-            class="security-diagram">
+        <div class="security-card">
+          <div class="security-image-padded">
+            <img src="images/security_qr.png" alt="病院のPCにネット接続せずに、AIの恩恵が受けられる" class="security-img">
+          </div>
+          <p class="security-explanation">
+            Microsoft Azure採用で3省2ガイドラインに準拠。<br>
+            QRコード転送方式により、電子カルテはネット接続不要で安全に運用できます。
+          </p>
         </div>
-
-        <div class="security-list">
-          <div class="security-item">
-            <div class="security-icon">🔒</div>
-            <div class="security-content">
-              <h3 class="security-title">3省2ガイドライン完全準拠</h3>
-              <p class="security-description">
-                厚生労働省、経済産業省、総務省が定める医療情報システムの安全管理に関するガイドラインに完全対応。<br><br>
-                医療機関が安心して導入できるセキュリティ基準をクリアしています。
-              </p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon">🔒</div>
-            <div class="security-content">
-              <h3 class="security-title">Microsoft Azure採用</h3>
-              <p class="security-description">
-                世界最高水準のクラウドセキュリティで医療情報を保護。<br><br>
-                大手医療機関も採用するエンタープライズグレードのセキュリティ基盤です。
-              </p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon">⚙️</div>
-            <div class="security-content">
-              <h3 class="security-title">電子カルテベンダーとの調整不要</h3>
-              <p class="security-description">
-                QRコード転送方式のため、電子カルテへの組み込みは一切不要。<br><br>
-                ベンダーへの依頼、契約変更、システム改修費用…すべてゼロで導入できます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
 
@@ -552,17 +450,6 @@
           <div class="flow-step">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3 class="step-title">お試し導入</h3>
-              <p class="step-description">1ヶ月お試しで効果を体験</p>
-            </div>
-          </div>
-
-          <div class="flow-arrow">→</div>
-
-          <!-- Step 4 -->
-          <div class="flow-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
               <h3 class="step-title">利用開始</h3>
               <p class="step-description">電子カルテベンダーとの<br>調整不要で即導入</p>
             </div>
@@ -575,78 +462,7 @@
       </div>
     </section>
 
-    <!-- Section 8: 賢い先生に選ばれる3つの理由 -->
-    <section id="why-chosen" class="why-chosen-section">
-      <div class="container">
-        <h2 class="section-title">賢い先生に選ばれる、3つの理由</h2>
-        <p class="section-subtitle">なぜコエレクが、全国の先進的救急外来で導入されているのか</p>
-
-        <div class="reasons-list">
-          <div class="reason-item">
-            <div class="reason-number">1</div>
-            <div class="reason-content">
-              <h3 class="reason-title">最もシンプルな操作</h3>
-              <p class="reason-description">
-                話す、選ぶ、かざす。たった3ステップ。<br><br>
-                複雑な設定不要、マニュアル不要。<br>
-                研修医でも初日から使いこなせます。
-              </p>
-            </div>
-          </div>
-
-          <div class="reason-item">
-            <div class="reason-number">2</div>
-            <div class="reason-content">
-              <h3 class="reason-title">どの電子カルテでも使える</h3>
-              <p class="reason-description">
-                QRコード転送だから、電子カルテの種類を選びません。<br><br>
-                既存システムへの影響ゼロ。<br>
-                導入のハードルが極めて低い設計です。
-              </p>
-            </div>
-          </div>
-
-          <div class="reason-item">
-            <div class="reason-number">3</div>
-            <div class="reason-content">
-              <h3 class="reason-title">救急医22年の現場経験から生まれた</h3>
-              <p class="reason-description">
-                開発者は現役の救急医。<br><br>
-                「実際に使える」ことを最優先に設計。<br>
-                現場の声を反映した、継続的なアップデート。
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3ステップ動画（LP導線上の独立ブロック：3カードの高さを揃えつつ、"簡単さ"の証拠を提示） -->
-        <div class="three-step-video-block">
-          <div class="three-step-video-copy">
-            <h3 class="three-step-video-heading">1分で分かる：3ステップ手技</h3>
-            <p class="three-step-video-subtext">
-              「本当に簡単？」を、実際の操作で確認できます。<br>
-              話す→選ぶ→かざす。これだけです。
-            </p>
-          </div>
-
-          <button type="button" class="inline-video-card js-video-modal-trigger three-step-video-card"
-            data-video-id="9aEFoKDLvTU" data-video-title="1分でわかる：3ステップ手技動画" aria-label="1分でわかる：3ステップ手技動画を再生">
-            <div class="inline-video-thumb" aria-hidden="true">
-              <img src="https://i.ytimg.com/vi/9aEFoKDLvTU/hqdefault.jpg" alt="" loading="lazy"
-                class="inline-video-thumb-img">
-              <div class="inline-video-play" aria-hidden="true">▶</div>
-              <div class="inline-video-duration" aria-hidden="true">約1分</div>
-            </div>
-            <div class="inline-video-meta">
-              <p class="inline-video-eyebrow">1分で分かる</p>
-              <p class="inline-video-title">3ステップ手技動画</p>
-            </div>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 7: 実際の救急外来事例動画（※動画はクリック再生にして“うるささ”と離脱を抑える） -->
+    <!-- Section 7: 実際の救急外来事例動画（※動画はクリック再生にして"うるささ"と離脱を抑える） -->
     <section id="real-case" class="real-case-section">
       <div class="container">
         <h2 class="section-title">実際の救急外来で、どう使われているか。</h2>
@@ -749,61 +565,35 @@
       </div>
     </div>
 
-    <!-- Pricing: 料金プラン（決裁者が迷わないように明示） -->
-    <section id="pricing" class="pricing-section">
+    <!-- Pricing: 料金プラン -->
+    <section id="pricing" class="pricing-section pricing-section--simple">
       <div class="container">
-        <h2 class="section-title">料金（目安・税別）</h2>
+        <h2 class="section-title section-title--green">料金プラン</h2>
         <p class="section-subtitle">
-          まずは小さく導入して効果を確認できます。
+          クラークを雇うよりも安価にカルテ業務を削減！
         </p>
 
-        <div class="pricing-grid pricing-grid--stack">
-          <div class="pricing-card">
-            <p class="pricing-label">導入費用</p>
-            <div class="pricing-main">
-              <div class="pricing-row">
-                <span class="pricing-item">初期費用</span>
-                <span class="pricing-value"><strong>30,000円〜</strong></span>
-              </div>
-              <div class="pricing-row">
-                <span class="pricing-item">月額</span>
-                <span class="pricing-value"><strong>15,000円</strong></span>
-              </div>
-            </div>
-            <p class="pricing-footnote">※月額は<strong>年額払い</strong>の料金です。</p>
-            <ul class="pricing-notes">
-              <li>※金額は税別です（必要に応じて変更可能）</li>
-              <li>※ご利用人数・運用要件により変動する場合があります</li>
-            </ul>
-
-            <div class="ringi-box ringi-box--inline">
-              <h3 class="ringi-title">稟議セット（無料）</h3>
-              <p class="ringi-subtitle">決裁に必要な資料をまとめてお渡しします。</p>
-              <ul class="ringi-list">
-                <li>効果試算シート（Before/After）</li>
-                <li>導入フロー（最短導入手順）</li>
-                <li>セキュリティ概要（ガイドライン観点）</li>
-                <li>稟議文案テンプレ（そのまま使える）</li>
-              </ul>
-              <div class="pricing-actions">
-                <a href="https://koereq.com/contact?utm_source=lp&utm_medium=pricing&utm_campaign=demo"
-                  class="cta-button-primary">この条件で相談する（無料デモ）</a>
-                <a href="https://koereq.com/contact?utm_source=lp&utm_medium=ringi&utm_campaign=ringi_set"
-                  class="cta-button-secondary">稟議セットを受け取る</a>
-              </div>
-            </div>
+        <!-- シンプルな料金表示 -->
+        <div class="pricing-simple-card">
+          <div class="pricing-simple-left">
+            <p class="pricing-simple-label">初期費用</p>
+            <p class="pricing-simple-value">30,000円<span class="pricing-simple-suffix">〜</span></p>
+            <div class="pricing-arrow"></div>
           </div>
-
-          <div class="pricing-flow-note" aria-hidden="true">
-            基本導入費用に加えて、必要な場合のみパッケージを追加できます。
+          <div class="pricing-simple-right">
+            <p class="pricing-simple-label">月額費用</p>
+            <p class="pricing-simple-value">15,000<span class="pricing-simple-yen">円</span></p>
+            <p class="pricing-simple-note">（使用量制限なし）</p>
           </div>
+        </div>
 
-          <div class="pricing-card is-secondary">
-            <p class="pricing-label">一括パッケージ（必要な方へ）</p>
+        <div class="pricing-extras">
+          <div class="package-section">
+            <p class="package-intro">基本導入費用に加えて、必要な場合のみパッケージを追加できます。</p>
             <div class="package-card">
+              <p class="pricing-label">一括パッケージ（必要な方へ）</p>
               <div class="package-head">
                 <h3 class="package-title">開けるだけですぐ使える導入一式</h3>
-                <p class="package-price"><strong>99,800円</strong><span class="package-tax">（税別）</span></p>
               </div>
 
               <div class="package-media">
@@ -822,7 +612,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div><!-- /.pricing-extras -->
       </div>
     </section>
 
@@ -862,8 +652,8 @@
               <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-              <p>お試しから、すぐに導入可能です。<br><br>
-                無料トライアル申込 → アカウント発行（即日） → その日から使用開始<br><br>
+              <p>最短で即日導入可能です。<br><br>
+                お問い合わせ → Webミーティング → アカウント発行（即日） → その日から使用開始<br><br>
                 複雑な設定は一切ありません。</p>
             </div>
           </div>
@@ -898,9 +688,8 @@
               <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-              <p>月額15,000円〜です。<br><br>
-                施設規模や利用人数により詳細料金が異なります。<br><br>
-                まずは30日間無料トライアルで効果を実感してください。</p>
+              <p>月額15,000円（税別）の定額制です。<br><br>
+                使用量による増減はありません。シンプルな料金体系で、予算管理も簡単です。</p>
             </div>
           </div>
 
@@ -910,9 +699,8 @@
               <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-              <p>はい、30日間無料トライアル実施中です。<br><br>
-                いつでも解約可能。導入リスクはゼロです。<br><br>
-                まずは実際にお試しいただき、記録時間の短縮を体感してください。</p>
+              <p>ご希望の方には無料トライアルをご用意しています。<br><br>
+                まずはWebミーティングで概要をご説明し、ご希望に応じてトライアルをご案内します。</p>
             </div>
           </div>
         </div>
@@ -943,21 +731,22 @@
             研究に。
           </p>
 
-          <p class="final-cta-trial">まずは30日間、無料でお試しください。</p>
+          <p class="final-cta-trial">まずは無料デモで、その効果を体感してください。</p>
 
           <div class="final-cta-buttons">
             <a href="https://koereq.com/contact" class="cta-button-primary large">今すぐ無料デモを申し込む</a>
           </div>
 
           <div class="final-cta-features">
-            <span class="feature-item">✅ 30日間無料トライアル</span>
-            <span class="feature-item">✅ 導入サポート完全無料</span>
-            <span class="feature-item">✅ いつでも解約可能</span>
-            <span class="feature-item">✅ クレジットカード登録不要</span>
+            <span class="feature-item">✓ 月額15,000円定額</span>
+            <span class="feature-item">✓ 導入サポート完全無料</span>
+            <span class="feature-item">✓ 希望者には無料トライアルあり</span>
           </div>
         </div>
       </div>
     </section>
+
+    </div><!-- /.content-overlay -->
 
   </main>
 
