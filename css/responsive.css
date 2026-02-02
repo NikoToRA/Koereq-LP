@@ -11,8 +11,7 @@
   }
 
   .hero-section {
-    background-image: none;
-    background-color: var(--white);
+    background-image: var(--hero-image);
   }
 
   :root {

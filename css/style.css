@@ -261,7 +261,7 @@
   align-items: center;
   padding: 120px 32px 0;
   /* 上部ヘッダー分 + 余白 */
-  background: var(--white);
+  background: var(--hero-image);
   z-index: 0;
 }
 
@@ -428,8 +428,7 @@
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    background-image: none;
-    background-color: var(--white);
+    background-image: var(--hero-image);
   }
 
   /* 導入実績セクションの上部余白を縮小 */
