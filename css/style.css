@@ -277,6 +277,8 @@
   /* 両端に余裕を持たせる */
   margin-left: 20px;
   margin-right: 20px;
+  /* スクロール終点でヒーローが見えないように余白を追加 */
+  padding-bottom: 100vh;
 }
 
 .hero-bg-video {
