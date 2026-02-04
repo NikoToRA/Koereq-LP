@@ -1370,29 +1370,25 @@
 }
 
 .problem-list-emergency {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .problem-item-emergency {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 24px 32px;
+  padding: 28px 32px;
   background: var(--white);
-  border-radius: 12px;
-  border-left: 4px solid #EF4444;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .problem-item-emergency:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .problem-item-emergency.critical {
@@ -1400,23 +1396,25 @@
   background: linear-gradient(90deg, #FEF2F2 0%, #FFFFFF 100%);
 }
 
-.problem-icon-emergency {
-  font-size: 24px;
-  line-height: 1;
-  flex-shrink: 0;
+.problem-item-emergency.critical:hover {
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
 }
 
 .problem-text-emergency {
-  font-size: 18px;
+  font-size: var(--text-base);
   font-weight: 400;
-  color: var(--deep-navy);
-  line-height: 1.7;
+  color: var(--gray-700);
+  line-height: 1.8;
   margin: 0;
+  text-align: center;
 }
 
 .problem-text-emergency strong {
-  font-weight: 700;
-  color: #1F2937;
+  font-weight: 900;
+  color: var(--wonder-blue);
+  display: block;
+  margin-top: 12px;
+  font-size: var(--text-2xl);
 }
 
 .text-critical {
@@ -1443,11 +1441,12 @@
 }
 
 .manager-pain-emotion {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 900;
   color: var(--white);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.3;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .solution-principle {
@@ -1505,7 +1504,7 @@
   }
 
   .manager-pain-emotion {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .principle-title {
@@ -1533,15 +1532,15 @@
   }
 
   .problem-item-emergency {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    gap: 12px;
+    padding: 24px 20px;
   }
 
   .problem-text-emergency {
     font-size: 15px;
+  }
+
+  .problem-text-emergency strong {
+    font-size: var(--text-xl);
   }
 
   .manager-pain {
@@ -1554,7 +1553,7 @@
   }
 
   .manager-pain-emotion {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .principle-title {
@@ -4104,7 +4103,7 @@
    Section 9: 最終CTA
 ======================================== */
 .final-cta-section {
-  padding: var(--section-spacing) 0;
+  padding: var(--spacing-2xl) 0;
   background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
   color: var(--white);
   text-align: center;
@@ -4178,6 +4177,8 @@
   padding: var(--spacing-2xl) 0;
   background: var(--bg-dark);
   color: var(--white);
+  position: relative;
+  z-index: 10;
 }
 
 .footer-content {
@@ -4401,3 +4402,183 @@
     line-height: 1.7;
   }
 }
+
+/* ========================================
+   全ての電子カルテに接続可能セクション
+======================================== */
+.emr-compatibility-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--white);
+}
+
+.emr-compatibility-section .section-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.emr-subtitle {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-bottom: var(--spacing-lg);
+}
+
+.emr-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.emr-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 6px 12px;
+  background: var(--gray-100);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.emr-logo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.emr-logo-item img {
+  max-height: 28px;
+  max-width: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(30%);
+  opacity: 0.85;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.emr-logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.emr-logo-item--text {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--gray-700);
+  white-space: nowrap;
+}
+
+.emr-more-text {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  margin-top: var(--spacing-md);
+}
+
+@media (max-width: 640px) {
+  .emr-compatibility-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .emr-compatibility-section .section-title {
+    font-size: var(--text-xl);
+  }
+
+  .emr-logos-grid {
+    gap: 10px 14px;
+  }
+
+  .emr-logo-item {
+    height: 32px;
+    padding: 4px 8px;
+  }
+
+  .emr-logo-item img {
+    max-height: 22px;
+    max-width: 80px;
+  }
+
+  .emr-logo-item--text {
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   会社概要セクション
+======================================== */
+.company-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-secondary);
+}
+
+.company-section .section-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.company-info {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 16px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.company-list {
+  margin: 0;
+}
+
+.company-row {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.company-row:last-child {
+  border-bottom: none;
+}
+
+.company-row dt {
+  width: 100px;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+}
+
+.company-row dd {
+  margin: 0;
+  color: var(--deep-navy);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.company-row dd a {
+  color: var(--wonder-blue);
+  text-decoration: none;
+}
+
+.company-row dd a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .company-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .company-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .company-row dt {
+    width: auto;
+  }
+}
+
