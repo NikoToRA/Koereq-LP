@@ -159,7 +159,7 @@
 /* ヘッダー用コンテナは画面端まで広げる */
 .header-fixed .container {
   max-width: 100%;
-  padding: 0 32px;
+  padding: 0 clamp(16px, 4vw, 48px);
 }
 
 .header-content {
@@ -452,6 +452,11 @@
   .section-title--lined {
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+
+  /* ヘッダーのパディングを確保 */
+  .header-fixed .container {
+    padding: 0 16px;
   }
 
   /* ヘッダーのCTAボタンを小さく */
