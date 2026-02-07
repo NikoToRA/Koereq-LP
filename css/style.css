@@ -4538,6 +4538,11 @@
   background: var(--white);
 }
 
+.emr-compatibility-section .container {
+  max-width: 1200px;
+  padding: 0 48px;
+}
+
 .emr-compatibility-section .section-title {
   font-size: var(--text-2xl);
   margin-bottom: var(--spacing-sm);
