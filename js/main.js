@@ -52,6 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
+  // ストーリーブロックのスクロールアニメーション
+  const storyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.story-block').forEach(el => {
+    storyObserver.observe(el);
+  });
+
   // ========================================
   // 数字カウントアップアニメーション
   // ========================================
