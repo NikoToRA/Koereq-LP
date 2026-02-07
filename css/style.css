@@ -267,12 +267,24 @@
   overflow: hidden;
 }
 
-/* 極薄ドットグリッド - 静的なテクスチャで奥行きを出す */
+/* ヒーロー画像をぼかして背景に敷く */
 .hero-section::before {
   content: '';
   position: absolute;
+  inset: -40px;
+  background: url('../images/hero_-title.png') center center / cover no-repeat;
+  filter: blur(50px) brightness(0.35) saturate(1.3);
+  transform: scale(1.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 極薄ドットグリッド - テクスチャで奥行き */
+.hero-section::after {
+  content: '';
+  position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
