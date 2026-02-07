@@ -510,90 +510,53 @@
       </div>
     </section>
 
-    <!-- Section 7: 実際の救急外来事例動画（※動画はクリック再生にして"うるささ"と離脱を抑える） -->
+    <!-- Section 7: 導入病院の声 -->
     <section id="real-case" class="real-case-section">
-      <div class="container">
+      <div class="hospital-cards-wrapper">
         <h2 class="section-title">実際の救急外来で、どう使われているか。</h2>
-        <p class="section-subtitle">
-          「簡単さ」と「現場の満足度」を動画で確認できます。
-        </p>
+        <p class="section-subtitle">導入病院の現場から届いた声をご紹介します。</p>
 
-        <!-- Block 1: 実際の操作動画（スピード証明） -->
-        <div class="video-testimonial-block">
-          <div class="video-wrapper-large">
-            <button type="button"
-              class="inline-video-card inline-video-card--large js-video-modal-trigger real-case-video-card"
-              data-video-src="videos/コエレク実際の使用動画.mp4" data-video-title="実際の救急外来での使用動画"
-              aria-label="実際の救急外来での使用動画（約2分）を再生">
-              <div class="inline-video-thumb" aria-hidden="true">
-                <img src="images/hero_image.jpg" alt="" loading="lazy" class="inline-video-thumb-img">
-                <div class="inline-video-play" aria-hidden="true">▶</div>
-                <div class="inline-video-duration" aria-hidden="true">約2分</div>
-              </div>
-              <div class="inline-video-meta">
-                <p class="inline-video-eyebrow">実際の操作画面</p>
-                <p class="inline-video-title">スマホに話して記録完了するまで</p>
-              </div>
-            </button>
-          </div>
-          <div class="testimonial-content">
-            <h3 class="testimonial-heading">
-              <span class="icon">⏱️</span> 診察を止めない、圧倒的なスピード
-            </h3>
-            <p class="highlight-text">
-              実際の救急外来での操作映像です。<br>
-              患者さんと話した内容を「思い出す」作業と「タイピングする」時間がゼロになる感覚をご覧ください。
-            </p>
-          </div>
-        </div>
-
-        <!-- Block 2: 院内救命士インタビュー（現場満足度証明） -->
-        <!-- ここが決裁者に一番見せたいコンテンツ -->
-        <div class="video-testimonial-block reverse-layout">
-          <div class="video-wrapper-large">
-            <!-- ※動画公開後、data-video-idとサムネイルを更新してください -->
-            <button type="button"
-              class="inline-video-card inline-video-card--large js-video-modal-trigger interview-video-card"
-              data-video-src="videos/koereq_interview_v14.mp4" data-video-title="函館五稜郭病院 ユーザーインタビュー"
-              aria-label="函館五稜郭病院のユーザーインタビュー動画を再生">
-              <div class="inline-video-thumb" aria-hidden="true">
-                <div class="inline-video-thumb-placeholder" aria-hidden="true">
-                  <video class="inline-video-thumb-video" muted autoplay loop playsinline preload="metadata"
-                    poster="images/hero_image.jpg">
-                    <source src="videos/koereq_interview_v14.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-              <div class="inline-video-meta">
-                <p class="inline-video-eyebrow">ユーザーインタビュー</p>
-                <p class="inline-video-title">院内救命士が語る「コエレクがある日常」</p>
-              </div>
-            </button>
-          </div>
-          <div class="testimonial-content">
-            <div class="interview-quote-area">
-              <p class="quote-role">函館五稜郭病院</p>
-              <!-- ユーザー提供セリフの反映 -->
-              <h3 class="quote-main">
-                「救急要請が重なる時、タイピングでは間に合わない。<br>コエレクなしでは、もう考えられない。」
-              </h3>
+        <div class="hospital-cards">
+          <!-- 札幌徳洲会病院 -->
+          <div class="hospital-card">
+            <div class="hospital-card__logo">
+              <img src="images/satsutoku_logo.jpg" alt="札幌徳洲会病院" loading="lazy">
+            </div>
+            <div class="hospital-card__body">
+              <p class="hospital-card__name">札幌徳洲会病院</p>
+              <p class="hospital-card__dept">救急外来</p>
+              <blockquote class="hospital-card__quote">
+                「研修医でも迷わず使えて、救急外来での教育が格段にスムーズになりました。」
+              </blockquote>
             </div>
           </div>
-        </div>
 
-        <!-- 現場の声（簡潔版・既存のまま配置） -->
-        <div class="real-case-voices">
-          <div class="voice-item">
-            <p class="voice-hospital">札幌徳洲会病院 救急外来</p>
-            <p class="voice-quote">「研修医でも迷わず使えて、救急外来での教育が格段にスムーズになりました。」</p>
+          <!-- 勤医協中央病院 -->
+          <div class="hospital-card">
+            <div class="hospital-card__logo">
+              <img src="images/kinchu_logo.png" alt="勤医協中央病院" loading="lazy">
+            </div>
+            <div class="hospital-card__body">
+              <p class="hospital-card__name">勤医協中央病院</p>
+              <p class="hospital-card__dept">救急科</p>
+              <blockquote class="hospital-card__quote">
+                「話すだけで記録できるので、患者さんとの対話を中断することがありません。」
+              </blockquote>
+            </div>
           </div>
-          <div class="voice-item">
-            <p class="voice-hospital">勤医協中央病院</p>
-            <p class="voice-quote">「話すだけで記録できるので、患者さんとの対話を中断することがありません。」</p>
-          </div>
-          <div class="voice-item">
-            <p class="voice-hospital">函館五稜郭病院</p>
-            <p class="voice-quote">「救急要請が重なる時、タイピングでは間に合わない。コエレクなしでは、もう考えられない。」</p>
+
+          <!-- 函館五稜郭病院 -->
+          <div class="hospital-card">
+            <div class="hospital-card__logo">
+              <img src="images/goryoukaku.png" alt="函館五稜郭病院" loading="lazy">
+            </div>
+            <div class="hospital-card__body">
+              <p class="hospital-card__name">函館五稜郭病院</p>
+              <p class="hospital-card__dept">救急外来</p>
+              <blockquote class="hospital-card__quote">
+                「救急要請が重なる時、タイピングでは間に合わない。コエレクなしでは、もう考えられない。」
+              </blockquote>
+            </div>
           </div>
         </div>
       </div>
