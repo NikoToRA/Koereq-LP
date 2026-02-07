@@ -3266,9 +3266,9 @@
   margin-bottom: 64px;
 }
 
-/* ストーリーブロックのラッパー（横幅制限） */
+/* ストーリーブロックのラッパー（ヒーローと同じ横幅） */
 .story-blocks-wrapper {
-  max-width: 1200px;
+  max-width: min(1400px, 95vw);
   margin: 0 auto;
   padding: 0 48px;
 }
@@ -3506,9 +3506,9 @@
   margin-bottom: 0;
 }
 
-/* ステップのラッパー（横幅1200px - story-blocks-wrapperと同じ） */
+/* ステップのラッパー（ヒーローと同じ横幅） */
 .flow-steps-wrapper {
-  max-width: 1200px;
+  max-width: min(1400px, 95vw);
   margin: 0 auto;
   padding: 0 48px;
 }
@@ -4539,7 +4539,7 @@
 }
 
 .emr-compatibility-section .container {
-  max-width: 1200px;
+  max-width: min(1400px, 95vw);
   padding: 0 48px;
 }
 
