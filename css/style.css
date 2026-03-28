@@ -4624,13 +4624,16 @@
   background: var(--bg-secondary);
 }
 
+.security-simple-section .container {
+  max-width: min(1400px, 95vw);
+  padding: 0 48px;
+}
+
 .security-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .security-split-image {
@@ -4891,6 +4894,11 @@
 .use-cases-section {
   padding: 80px 0;
   background: var(--bg-secondary);
+}
+
+.use-cases-section .container {
+  max-width: min(1400px, 95vw);
+  padding: 0 48px;
 }
 
 .use-cases-subtitle {
