@@ -388,6 +388,50 @@
       </div><!-- /.story-blocks-wrapper -->
     </section>
 
+    <!-- Section: 使用例 -->
+    <section id="use-cases" class="use-cases-section">
+      <div class="container">
+        <h2 class="section-title">こんな場面で使えます</h2>
+        <p class="use-cases-subtitle">タップして音声入力 → AI変換の例をご覧ください</p>
+        <div class="use-cases-grid">
+          <div class="use-case-card" data-use-case="karte">
+            <span class="use-case-icon">📋</span>
+            <h3 class="use-case-title">カルテ作成</h3>
+            <p class="use-case-desc">音声で話すだけで構造化されたカルテが完成</p>
+          </div>
+          <div class="use-case-card" data-use-case="referral">
+            <span class="use-case-icon">✉️</span>
+            <h3 class="use-case-title">紹介状作成</h3>
+            <p class="use-case-desc">口頭説明がフォーマルな紹介状に自動変換</p>
+          </div>
+          <div class="use-case-card" data-use-case="ic">
+            <span class="use-case-icon">🤝</span>
+            <h3 class="use-case-title">IC記録</h3>
+            <p class="use-case-desc">説明内容と同意記録を漏れなく文書化</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 使用例モーダル -->
+    <div class="use-case-modal-overlay" id="useCaseModal" aria-hidden="true">
+      <div class="use-case-modal">
+        <button class="use-case-modal-close" aria-label="閉じる">&times;</button>
+        <h3 class="use-case-modal-title" id="useCaseModalTitle"></h3>
+        <div class="use-case-modal-body">
+          <div class="use-case-modal-col use-case-modal-input">
+            <div class="use-case-modal-label">🎤 音声入力</div>
+            <div class="use-case-bubble" id="useCaseVoice"></div>
+          </div>
+          <div class="use-case-modal-arrow">→</div>
+          <div class="use-case-modal-col use-case-modal-output">
+            <div class="use-case-modal-label">✨ AI変換結果</div>
+            <pre class="use-case-code" id="useCaseResult"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Section 6.5: セキュリティ（カード形式） -->
     <section id="security" class="security-simple-section">
       <div class="container">

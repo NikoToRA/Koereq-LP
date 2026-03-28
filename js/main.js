@@ -363,6 +363,125 @@ document.addEventListener('DOMContentLoaded', function() {
   */
 
   // ========================================
+  // 使用例モーダル
+  // ========================================
+  const useCaseData = {
+    karte: {
+      title: '📋 カルテ作成',
+      voice: '50歳男性、胸痛を主訴に来院。2時間前に突然の胸骨後部の圧迫感。冷汗あり。バイタル、血圧178/102、脈拍92、SpO2 97%。心電図でST上昇あり、トロポニン陽性。循環器内科コンサルト済み、緊急カテ予定。',
+      result:
+`【主訴】胸痛
+【現病歴】2時間前に突然の胸骨後部圧迫感が出現。冷汗を伴う。
+【バイタルサイン】
+  BP: 178/102 mmHg
+  HR: 92 bpm
+  SpO2: 97%
+【検査所見】
+  心電図: ST上昇あり
+  トロポニン: 陽性
+【対応】
+  循環器内科コンサルト済み
+  緊急カテーテル検査予定`
+    },
+    referral: {
+      title: '✉️ 紹介状作成',
+      voice: 'いつもお世話になっております。今回、右下腹部痛で来院された45歳女性をご紹介いたします。来院時CTにて虫垂の腫大および周囲の脂肪織混濁を認め、急性虫垂炎と診断いたしました。抗菌薬投与を開始しておりますが、外科的加療が必要と考え、ご高診のほどよろしくお願いいたします。',
+      result:
+`御侍史
+
+拝啓 時下益々ご清祥のこととお慶び申し上げます。
+
+【患者情報】45歳 女性
+【診断】急性虫垂炎
+【現病歴】
+  右下腹部痛を主訴に当院救急外来を受診。
+【検査所見】
+  腹部CT: 虫垂腫大、周囲脂肪織混濁あり
+【現在の治療】
+  抗菌薬投与開始
+【紹介目的】
+  外科的加療についてご検討いただきたく、
+  ご紹介申し上げます。
+
+ご高診のほど、何卒よろしくお願い申し上げます。
+
+敬具`
+    },
+    ic: {
+      title: '🤝 IC記録',
+      voice: '患者さんとご家族に対して、急性心筋梗塞の診断結果と今後の治療方針について説明しました。緊急カテーテル検査および必要に応じてステント留置術を行う方針をお伝えし、合併症として出血、血管損傷、造影剤アレルギーのリスクについて説明。患者さん、ご家族ともに理解され、同意書に署名いただきました。',
+      result:
+`【IC記録】
+  実施日時: 2024年XX月XX日
+  説明医師: ○○ ○○
+  同席者: 患者本人、ご家族
+
+【説明内容】
+  1. 診断: 急性心筋梗塞
+  2. 治療方針: 緊急カテーテル検査
+     → 必要に応じてステント留置術
+  3. 合併症リスク:
+     - 出血
+     - 血管損傷
+     - 造影剤アレルギー
+
+【患者・家族の反応】
+  説明内容を理解され、同意
+
+【同意】同意書署名済み`
+    }
+  };
+
+  const useCaseModal = document.getElementById('useCaseModal');
+  const useCaseModalTitle = document.getElementById('useCaseModalTitle');
+  const useCaseVoice = document.getElementById('useCaseVoice');
+  const useCaseResult = document.getElementById('useCaseResult');
+
+  function openUseCaseModal(key) {
+    var data = useCaseData[key];
+    if (!data || !useCaseModal) return;
+    useCaseModalTitle.textContent = data.title;
+    useCaseVoice.textContent = data.voice;
+    useCaseResult.textContent = data.result;
+    useCaseModal.classList.add('is-open');
+    useCaseModal.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closeUseCaseModal() {
+    if (!useCaseModal) return;
+    useCaseModal.classList.remove('is-open');
+    useCaseModal.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = '';
+  }
+
+  document.querySelectorAll('.use-case-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var key = card.getAttribute('data-use-case');
+      openUseCaseModal(key);
+    });
+  });
+
+  var useCaseCloseBtn = useCaseModal ? useCaseModal.querySelector('.use-case-modal-close') : null;
+  if (useCaseCloseBtn) {
+    useCaseCloseBtn.addEventListener('click', closeUseCaseModal);
+  }
+
+  if (useCaseModal) {
+    useCaseModal.addEventListener('click', function(e) {
+      if (e.target === useCaseModal) {
+        closeUseCaseModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && useCaseModal && useCaseModal.classList.contains('is-open')) {
+      closeUseCaseModal();
+    }
+  });
+
+  // ========================================
   // 初期化完了ログ
   // ========================================
   console.log('✅ Koereq LP: JavaScript initialized');
