@@ -395,17 +395,14 @@
         <p class="use-cases-subtitle">タップして音声入力 → AI変換の例をご覧ください</p>
         <div class="use-cases-grid">
           <div class="use-case-card" data-use-case="karte">
-            <span class="use-case-icon">📋</span>
             <h3 class="use-case-title">カルテ作成</h3>
             <p class="use-case-desc">音声で話すだけで構造化されたカルテが完成</p>
           </div>
           <div class="use-case-card" data-use-case="referral">
-            <span class="use-case-icon">✉️</span>
             <h3 class="use-case-title">紹介状作成</h3>
             <p class="use-case-desc">口頭説明がフォーマルな紹介状に自動変換</p>
           </div>
           <div class="use-case-card" data-use-case="ic">
-            <span class="use-case-icon">🤝</span>
             <h3 class="use-case-title">IC記録</h3>
             <p class="use-case-desc">説明内容と同意記録を漏れなく文書化</p>
           </div>
@@ -420,29 +417,39 @@
         <h3 class="use-case-modal-title" id="useCaseModalTitle"></h3>
         <div class="use-case-modal-body">
           <div class="use-case-modal-col use-case-modal-input">
-            <div class="use-case-modal-label">🎤 音声入力</div>
+            <div class="use-case-modal-label">音声入力</div>
             <div class="use-case-bubble" id="useCaseVoice"></div>
           </div>
           <div class="use-case-modal-arrow">→</div>
           <div class="use-case-modal-col use-case-modal-output">
-            <div class="use-case-modal-label">✨ AI変換結果</div>
+            <div class="use-case-modal-label">AI変換結果</div>
             <pre class="use-case-code" id="useCaseResult"></pre>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Section 6.5: セキュリティ（カード形式） -->
+    <!-- Section 6.5: セキュリティ（左右分割） -->
     <section id="security" class="security-simple-section">
       <div class="container">
-        <div class="security-card">
-          <div class="security-image-padded">
-            <img src="images/security_qr.png" alt="病院のPCにネット接続せずに、AIの恩恵が受けられる" class="security-img">
+        <h2 class="section-title">安心のセキュリティ体制</h2>
+        <div class="security-split">
+          <div class="security-split-image">
+            <img src="images/security_qr.png" alt="QRコード転送方式によるセキュリティ" class="security-img">
           </div>
-          <p class="security-explanation">
-            Microsoft Azure採用で3省2ガイドラインに準拠。<br>
-            QRコード転送方式により、電子カルテはネット接続不要で安全に運用できます。
-          </p>
+          <div class="security-split-text">
+            <ul class="security-points">
+              <li class="security-point-item">
+                <span class="security-point-label">Microsoft Azure採用で3省2ガイドラインに準拠</span>
+              </li>
+              <li class="security-point-item">
+                <span class="security-point-label">QRコード転送方式により、電子カルテはネット接続不要</span>
+              </li>
+              <li class="security-point-item">
+                <span class="security-point-label">患者データは院外に出ない安心設計</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
