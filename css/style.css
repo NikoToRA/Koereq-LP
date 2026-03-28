@@ -4971,6 +4971,24 @@
   line-height: 1.6;
 }
 
+.use-case-cta {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--wonder-blue);
+  transition: gap 0.2s ease;
+}
+
+.use-case-cta-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.use-case-card:hover .use-case-cta-arrow {
+  transform: translateX(4px);
+}
+
 @media (max-width: 768px) {
   .use-cases-grid {
     grid-template-columns: 1fr;
