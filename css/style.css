@@ -5002,7 +5002,7 @@
 }
 
 /* ========================================
-   使用例モーダル
+   使用例モーダル（チャット形式）
 ======================================== */
 .use-case-modal-overlay {
   position: fixed;
@@ -5028,19 +5028,19 @@
 .use-case-modal {
   background: var(--white);
   border-radius: 20px;
-  max-width: 900px;
+  max-width: 520px;
   width: 90%;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
-  padding: 40px;
+  padding: 32px 24px;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .use-case-modal-close {
   position: absolute;
-  top: 16px;
-  right: 20px;
+  top: 12px;
+  right: 16px;
   background: none;
   border: none;
   font-size: 28px;
@@ -5056,73 +5056,62 @@
 }
 
 .use-case-modal-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--deep-navy);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.use-case-modal-body {
+.use-case-chat {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.use-case-modal-col {
-  flex: 1;
+.use-case-chat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
 }
 
-.use-case-modal-arrow {
+.use-case-chat-row {
   display: flex;
-  align-items: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--wonder-blue);
-  padding-top: 40px;
-  flex-shrink: 0;
 }
 
-.use-case-modal-label {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--wonder-blue);
-  margin-bottom: 12px;
+.use-case-chat-row--right {
+  justify-content: flex-end;
 }
 
-.use-case-bubble {
-  background: #EFF6FF;
-  border-radius: 16px;
-  padding: 20px;
-  font-size: var(--text-sm);
-  line-height: 1.8;
-  color: var(--deep-navy);
-  position: relative;
+.use-case-chat-row--left {
+  justify-content: flex-start;
 }
 
-.use-case-bubble::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 20px;
-  width: 16px;
-  height: 16px;
-  background: #EFF6FF;
-  transform: rotate(45deg);
-  border-radius: 3px;
-}
-
-.use-case-code {
-  background: #0F172A;
-  color: #E2E8F0;
-  border-radius: 12px;
-  padding: 20px;
-  font-size: 13px;
+.use-case-chat-bubble {
+  max-width: 85%;
+  padding: 14px 18px;
+  font-size: 14px;
   line-height: 1.7;
+  border: none;
+}
+
+.use-case-chat-bubble--voice {
+  background: var(--wonder-blue);
+  color: var(--white);
+  border-radius: 16px 16px 4px 16px;
+}
+
+.use-case-chat-bubble--result {
+  background: #F1F5F9;
+  color: var(--deep-navy);
+  border-radius: 16px 16px 16px 4px;
   font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 13px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  overflow-x: auto;
   margin: 0;
 }
 
@@ -5130,18 +5119,11 @@
   .use-case-modal {
     width: 95%;
     padding: 24px 16px;
-    max-height: 90vh;
+    max-height: 92vh;
   }
 
-  .use-case-modal-body {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .use-case-modal-arrow {
-    justify-content: center;
-    padding-top: 0;
-    font-size: 24px;
+  .use-case-chat-bubble {
+    max-width: 92%;
   }
 }
 

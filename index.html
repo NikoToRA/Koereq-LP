@@ -428,20 +428,19 @@
       </div>
     </section>
 
-    <!-- 使用例モーダル -->
+    <!-- 使用例モーダル（チャット形式） -->
     <div class="use-case-modal-overlay" id="useCaseModal" aria-hidden="true">
       <div class="use-case-modal">
         <button class="use-case-modal-close" aria-label="閉じる">&times;</button>
         <h3 class="use-case-modal-title" id="useCaseModalTitle"></h3>
-        <div class="use-case-modal-body">
-          <div class="use-case-modal-col use-case-modal-input">
-            <div class="use-case-modal-label">音声入力</div>
-            <div class="use-case-bubble" id="useCaseVoice"></div>
+        <div class="use-case-chat">
+          <div class="use-case-chat-label">音声入力</div>
+          <div class="use-case-chat-row use-case-chat-row--right">
+            <div class="use-case-chat-bubble use-case-chat-bubble--voice" id="useCaseVoice"></div>
           </div>
-          <div class="use-case-modal-arrow">→</div>
-          <div class="use-case-modal-col use-case-modal-output">
-            <div class="use-case-modal-label">AI変換結果</div>
-            <pre class="use-case-code" id="useCaseResult"></pre>
+          <div class="use-case-chat-label">AI変換結果</div>
+          <div class="use-case-chat-row use-case-chat-row--left">
+            <pre class="use-case-chat-bubble use-case-chat-bubble--result" id="useCaseResult"></pre>
           </div>
         </div>
       </div>
