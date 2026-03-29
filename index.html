@@ -428,18 +428,13 @@
       </div>
     </section>
 
-    <!-- 使用例モーダル（チャット形式 + スライダー） -->
+    <!-- 使用例モーダル（縦スクロールチャット） -->
     <div class="use-case-modal-overlay" id="useCaseModal" aria-hidden="true">
       <div class="use-case-modal">
-        <button class="use-case-modal-close" aria-label="閉じる">&times;</button>
         <h3 class="use-case-modal-title" id="useCaseModalTitle"></h3>
-        <div class="use-case-slider">
-          <div class="use-case-slider-track" id="useCaseSliderTrack"></div>
-        </div>
-        <div class="use-case-slider-nav">
-          <button class="use-case-slider-btn use-case-slider-prev" id="useCasePrev" aria-label="前へ">&larr; 前へ</button>
-          <span class="use-case-slider-indicator" id="useCaseIndicator">1 / 1</span>
-          <button class="use-case-slider-btn use-case-slider-next" id="useCaseNext" aria-label="次へ">次へ &rarr;</button>
+        <div class="use-case-chat-scroll" id="useCaseChatScroll"></div>
+        <div class="use-case-modal-footer">
+          <button class="use-case-modal-close-btn" id="useCaseCloseBtn">閉じる</button>
         </div>
       </div>
     </div>

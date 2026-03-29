@@ -433,69 +433,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var useCaseModal = document.getElementById('useCaseModal');
   var useCaseModalTitle = document.getElementById('useCaseModalTitle');
-  var useCaseSliderTrack = document.getElementById('useCaseSliderTrack');
-  var useCasePrev = document.getElementById('useCasePrev');
-  var useCaseNext = document.getElementById('useCaseNext');
-  var useCaseIndicator = document.getElementById('useCaseIndicator');
-  var currentSlideIndex = 0;
-  var currentSlides = [];
+  var useCaseChatScroll = document.getElementById('useCaseChatScroll');
+  var useCaseCloseBtn = document.getElementById('useCaseCloseBtn');
 
-  function buildChatSlide(slideData) {
-    var slide = document.createElement('div');
-    slide.className = 'use-case-slide';
+  function buildChatFlow(slides) {
+    var fragment = document.createDocumentFragment();
 
-    var labelVoice = document.createElement('div');
-    labelVoice.className = 'use-case-chat-label';
-    labelVoice.textContent = '音声入力';
-    slide.appendChild(labelVoice);
+    slides.forEach(function(slideData, idx) {
+      if (idx > 0) {
+        var sep = document.createElement('div');
+        sep.className = 'use-case-chat-separator';
+        var sepText = document.createElement('span');
+        sepText.className = 'use-case-chat-separator-text';
+        sepText.textContent = '事例 ' + (idx + 1);
+        sep.appendChild(sepText);
+        fragment.appendChild(sep);
+      }
 
-    slideData.voices.forEach(function(text) {
-      var row = document.createElement('div');
-      row.className = 'use-case-chat-row use-case-chat-row--right';
-      var bubble = document.createElement('div');
-      bubble.className = 'use-case-chat-bubble use-case-chat-bubble--voice';
-      bubble.textContent = text;
-      row.appendChild(bubble);
-      slide.appendChild(row);
+      var labelVoice = document.createElement('div');
+      labelVoice.className = 'use-case-chat-label';
+      labelVoice.textContent = '音声入力';
+      fragment.appendChild(labelVoice);
+
+      slideData.voices.forEach(function(text) {
+        var row = document.createElement('div');
+        row.className = 'use-case-chat-row use-case-chat-row--right';
+        var bubble = document.createElement('div');
+        bubble.className = 'use-case-chat-bubble use-case-chat-bubble--voice';
+        bubble.textContent = text;
+        row.appendChild(bubble);
+        fragment.appendChild(row);
+      });
+
+      var labelResult = document.createElement('div');
+      labelResult.className = 'use-case-chat-label';
+      labelResult.textContent = 'AI変換結果';
+      fragment.appendChild(labelResult);
+
+      var rowResult = document.createElement('div');
+      rowResult.className = 'use-case-chat-row use-case-chat-row--left';
+      var bubbleResult = document.createElement('pre');
+      bubbleResult.className = 'use-case-chat-bubble use-case-chat-bubble--result';
+      bubbleResult.textContent = slideData.result;
+      rowResult.appendChild(bubbleResult);
+      fragment.appendChild(rowResult);
     });
 
-    var labelResult = document.createElement('div');
-    labelResult.className = 'use-case-chat-label';
-    labelResult.textContent = 'AI変換結果';
-    slide.appendChild(labelResult);
-
-    var rowResult = document.createElement('div');
-    rowResult.className = 'use-case-chat-row use-case-chat-row--left';
-    var bubbleResult = document.createElement('pre');
-    bubbleResult.className = 'use-case-chat-bubble use-case-chat-bubble--result';
-    bubbleResult.textContent = slideData.result;
-    rowResult.appendChild(bubbleResult);
-    slide.appendChild(rowResult);
-
-    return slide;
-  }
-
-  function updateSlider() {
-    if (!useCaseSliderTrack) return;
-    useCaseSliderTrack.style.transform = 'translateX(-' + (currentSlideIndex * 100) + '%)';
-    useCaseIndicator.textContent = (currentSlideIndex + 1) + ' / ' + currentSlides.length;
-    useCasePrev.disabled = currentSlideIndex === 0;
-    useCaseNext.disabled = currentSlideIndex === currentSlides.length - 1;
+    return fragment;
   }
 
   function openUseCaseModal(key) {
     var data = useCaseData[key];
     if (!data || !useCaseModal) return;
     useCaseModalTitle.textContent = data.title;
-    currentSlides = data.slides;
-    currentSlideIndex = 0;
 
-    useCaseSliderTrack.innerHTML = '';
-    currentSlides.forEach(function(slideData) {
-      useCaseSliderTrack.appendChild(buildChatSlide(slideData));
-    });
+    useCaseChatScroll.innerHTML = '';
+    useCaseChatScroll.appendChild(buildChatFlow(data.slides));
+    useCaseChatScroll.scrollTop = 0;
 
-    updateSlider();
     useCaseModal.classList.add('is-open');
     useCaseModal.setAttribute('aria-hidden', 'false');
     document.documentElement.style.overflow = 'hidden';
@@ -508,17 +503,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.style.overflow = '';
   }
 
-  if (useCasePrev) {
-    useCasePrev.addEventListener('click', function() {
-      if (currentSlideIndex > 0) { currentSlideIndex--; updateSlider(); }
-    });
-  }
-  if (useCaseNext) {
-    useCaseNext.addEventListener('click', function() {
-      if (currentSlideIndex < currentSlides.length - 1) { currentSlideIndex++; updateSlider(); }
-    });
-  }
-
   document.querySelectorAll('.use-case-card').forEach(function(card) {
     card.addEventListener('click', function() {
       var key = card.getAttribute('data-use-case');
@@ -526,7 +510,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  var useCaseCloseBtn = useCaseModal ? useCaseModal.querySelector('.use-case-modal-close') : null;
   if (useCaseCloseBtn) {
     useCaseCloseBtn.addEventListener('click', closeUseCaseModal);
   }
