@@ -4933,19 +4933,54 @@
   box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
 }
 
-.use-case-img-placeholder {
+.use-case-phone-preview {
   width: 100%;
-  height: 200px;
-  background: var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 220px;
+  background: #1E293B;
+  position: relative;
+  overflow: hidden;
 }
 
-.use-case-img-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.phone-notch {
+  width: 120px;
+  height: 28px;
+  background: #0F172A;
+  border-radius: 0 0 16px 16px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.phone-screen {
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.phone-bubble {
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  max-width: 88%;
+  text-align: left;
+}
+
+.phone-bubble--blue {
+  background: var(--wonder-blue);
+  color: var(--white);
+  border-radius: 12px 12px 4px 12px;
+}
+
+.phone-preview-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, #1E293B);
+  pointer-events: none;
 }
 
 .use-case-card-body {
@@ -4996,8 +5031,8 @@
     padding: 0 16px;
   }
 
-  .use-case-img-placeholder {
-    height: 160px;
+  .use-case-phone-preview {
+    height: 180px;
   }
 }
 
