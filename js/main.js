@@ -370,6 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: 'カルテ作成',
       slides: [
         {
+          action: '【カルテ作成】',
           voices: [
             '50歳男性、安静時に胸痛。冷や汗をかいて動けない。救急要請。',
             '既往歴、特になし。高血圧の指摘があるが治療していない。',
@@ -389,6 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: '紹介状作成',
       slides: [
         {
+          action: '【紹介状作成】',
           voices: [
             '80歳男性、施設入所中。ADL車椅子。本日施設内で発熱とサチ低下で救急搬送。',
             '誤嚥性肺炎の診断。CTで右肺浸潤影。CRP 12、白血球14000。',
@@ -404,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: 'IC記録',
       slides: [
         {
+          action: '【IC記録作成】',
           voices: [
             'これから病状について話をします。本日朝から熱があって、サチュレーションが下がった、酸素濃度が悪くなったということで救急搬送されてきました。',
             '現状の話をすると肺炎という診断になります。もともとADLも高くない状態で、食事が誤嚥という形で喉を通らずに肺に落ちたせいで炎症起こして肺炎を起こしているという状況です。',
@@ -451,6 +454,14 @@ document.addEventListener('DOMContentLoaded', function() {
         row.appendChild(bubble);
         fragment.appendChild(row);
       });
+
+      var actionRow = document.createElement('div');
+      actionRow.className = 'use-case-chat-row use-case-chat-row--right';
+      var actionBubble = document.createElement('div');
+      actionBubble.className = 'use-case-chat-bubble use-case-chat-bubble--voice';
+      actionBubble.textContent = slideData.action;
+      actionRow.appendChild(actionBubble);
+      fragment.appendChild(actionRow);
 
       var labelResult = document.createElement('div');
       labelResult.className = 'use-case-chat-label';
