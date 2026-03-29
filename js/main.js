@@ -363,86 +363,139 @@ document.addEventListener('DOMContentLoaded', function() {
   */
 
   // ========================================
-  // 使用例モーダル
+  // 使用例モーダル（スライダー付きチャット）
   // ========================================
-  const useCaseData = {
+  var useCaseData = {
     karte: {
       title: 'カルテ作成',
-      voice: '50歳男性、胸痛を主訴に来院。2時間前に突然の胸骨後部の圧迫感。冷汗あり。バイタル、血圧178/102、脈拍92、SpO2 97%。心電図でST上昇あり、トロポニン陽性。循環器内科コンサルト済み、緊急カテ予定。',
-      result:
-`【主訴】胸痛
-【現病歴】2時間前に突然の胸骨後部圧迫感が出現。冷汗を伴う。
-【バイタルサイン】
-  BP: 178/102 mmHg
-  HR: 92 bpm
-  SpO2: 97%
-【検査所見】
-  心電図: ST上昇あり
-  トロポニン: 陽性
-【対応】
-  循環器内科コンサルト済み
-  緊急カテーテル検査予定`
+      slides: [
+        {
+          voices: [
+            '50歳男性、胸痛で来院。2時間前に突然の胸骨後部の圧迫感が出現しました。冷汗あり。',
+            'バイタル。血圧178/102、脈拍92、SpO2 97%。',
+            '心電図でST上昇あり、トロポニン陽性です。循環器内科にコンサルト済み、緊急カテ予定です。'
+          ],
+          result: '【主訴】胸痛\n【現病歴】\n  2時間前に突然の胸骨後部圧迫感が出現。\n  冷汗を伴う。\n【バイタルサイン】\n  BP: 178/102 mmHg\n  HR: 92 bpm\n  SpO2: 97%\n【検査所見】\n  心電図: ST上昇あり\n  トロポニン: 陽性\n【対応】\n  循環器内科コンサルト済み\n  緊急カテーテル検査予定'
+        },
+        {
+          voices: [
+            '80歳女性、自宅で転倒して右大腿部の痛み。歩行困難で搬送。',
+            'バイタル。血圧142/88、脈拍78、SpO2 98%。体温36.2。',
+            'X線で右大腿骨頸部骨折を確認。整形外科コンサルト。手術予定。'
+          ],
+          result: '【主訴】右大腿部痛\n【現病歴】\n  自宅にて転倒。右大腿部痛を訴え、\n  歩行困難のため救急搬送。\n【バイタルサイン】\n  BP: 142/88 mmHg\n  HR: 78 bpm\n  SpO2: 98%\n  BT: 36.2℃\n【検査所見】\n  X線: 右大腿骨頸部骨折\n【対応】\n  整形外科コンサルト済み\n  手術予定'
+        }
+      ]
     },
     referral: {
       title: '紹介状作成',
-      voice: 'いつもお世話になっております。今回、右下腹部痛で来院された45歳女性をご紹介いたします。来院時CTにて虫垂の腫大および周囲の脂肪織混濁を認め、急性虫垂炎と診断いたしました。抗菌薬投与を開始しておりますが、外科的加療が必要と考え、ご高診のほどよろしくお願いいたします。',
-      result:
-`御侍史
-
-拝啓 時下益々ご清祥のこととお慶び申し上げます。
-
-【患者情報】45歳 女性
-【診断】急性虫垂炎
-【現病歴】
-  右下腹部痛を主訴に当院救急外来を受診。
-【検査所見】
-  腹部CT: 虫垂腫大、周囲脂肪織混濁あり
-【現在の治療】
-  抗菌薬投与開始
-【紹介目的】
-  外科的加療についてご検討いただきたく、
-  ご紹介申し上げます。
-
-ご高診のほど、何卒よろしくお願い申し上げます。
-
-敬具`
+      slides: [
+        {
+          voices: [
+            'いつもお世話になっております。右下腹部痛で来院された45歳女性をご紹介します。',
+            '来院時CTにて虫垂の腫大および周囲の脂肪織混濁を認め、急性虫垂炎と診断しました。',
+            '抗菌薬投与を開始しておりますが、外科的加療が必要と考え、ご高診のほどよろしくお願いいたします。'
+          ],
+          result: '御侍史\n\n拝啓 時下益々ご清祥のこととお慶び\n申し上げます。\n\n【患者情報】45歳 女性\n【診断】急性虫垂炎\n【現病歴】\n  右下腹部痛を主訴に当院救急外来を受診。\n【検査所見】\n  腹部CT: 虫垂腫大、周囲脂肪織混濁あり\n【現在の治療】\n  抗菌薬投与開始\n【紹介目的】\n  外科的加療についてご検討いただきたく、\n  ご紹介申し上げます。\n\nご高診のほど、何卒よろしく\nお願い申し上げます。\n\n敬具'
+        },
+        {
+          voices: [
+            '糖尿病のコントロール不良で来院した62歳男性です。HbA1c 9.8%。',
+            '現在メトホルミン500mg2錠で治療中ですが、食事療法がうまくいっていない状況です。',
+            'インスリン導入を含めた治療強化のため、糖尿病専門外来へのご紹介をお願いします。'
+          ],
+          result: '御侍史\n\n拝啓 時下益々ご清祥のこととお慶び\n申し上げます。\n\n【患者情報】62歳 男性\n【診断】2型糖尿病（コントロール不良）\n【現病歴】\n  メトホルミン500mg×2錠にて加療中。\n  食事療法の遵守が困難な状況。\n【検査所見】\n  HbA1c: 9.8%\n【現在の治療】\n  メトホルミン 500mg 2T/日\n【紹介目的】\n  インスリン導入を含めた治療強化について\n  ご検討いただきたく存じます。\n\nご高診のほど、何卒よろしく\nお願い申し上げます。\n\n敬具'
+        }
+      ]
     },
     ic: {
       title: 'IC記録',
-      voice: '患者さんとご家族に対して、急性心筋梗塞の診断結果と今後の治療方針について説明しました。緊急カテーテル検査および必要に応じてステント留置術を行う方針をお伝えし、合併症として出血、血管損傷、造影剤アレルギーのリスクについて説明。患者さん、ご家族ともに理解され、同意書に署名いただきました。',
-      result:
-`【IC記録】
-  実施日時: 2024年XX月XX日
-  説明医師: ○○ ○○
-  同席者: 患者本人、ご家族
-
-【説明内容】
-  1. 診断: 急性心筋梗塞
-  2. 治療方針: 緊急カテーテル検査
-     → 必要に応じてステント留置術
-  3. 合併症リスク:
-     - 出血
-     - 血管損傷
-     - 造影剤アレルギー
-
-【患者・家族の反応】
-  説明内容を理解され、同意
-
-【同意】同意書署名済み`
+      slides: [
+        {
+          voices: [
+            '患者さんとご家族に対して、急性心筋梗塞の診断結果について説明しました。',
+            '緊急カテーテル検査および必要に応じてステント留置術を行う方針をお伝えしました。',
+            '合併症として出血、血管損傷、造影剤アレルギーのリスクについて説明。患者さんご家族ともに理解され、同意書に署名いただきました。'
+          ],
+          result: '【IC記録】\n  実施日時: 2024年XX月XX日\n  説明医師: ○○ ○○\n  同席者: 患者本人、ご家族\n\n【説明内容】\n  1. 診断: 急性心筋梗塞\n  2. 治療方針: 緊急カテーテル検査\n     → 必要に応じてステント留置術\n  3. 合併症リスク:\n     - 出血\n     - 血管損傷\n     - 造影剤アレルギー\n\n【患者・家族の反応】\n  説明内容を理解され、同意\n\n【同意】同意書署名済み'
+        },
+        {
+          voices: [
+            '70歳男性に大腸ポリープ切除術について説明しました。',
+            '内視鏡的粘膜切除術を予定しており、偶発症として出血と穿孔のリスクがあることを説明。',
+            '術後は1週間の食事制限と安静が必要であることをお伝えし、同意をいただきました。'
+          ],
+          result: '【IC記録】\n  実施日時: 2024年XX月XX日\n  説明医師: ○○ ○○\n  同席者: 患者本人\n\n【説明内容】\n  1. 診断: 大腸ポリープ\n  2. 治療方針: 内視鏡的粘膜切除術（EMR）\n  3. 偶発症リスク:\n     - 出血\n     - 穿孔\n  4. 術後管理:\n     - 1週間の食事制限\n     - 安静\n\n【患者の反応】\n  説明内容を理解され、同意\n\n【同意】同意書署名済み'
+        }
+      ]
     }
   };
 
-  const useCaseModal = document.getElementById('useCaseModal');
-  const useCaseModalTitle = document.getElementById('useCaseModalTitle');
-  const useCaseVoice = document.getElementById('useCaseVoice');
-  const useCaseResult = document.getElementById('useCaseResult');
+  var useCaseModal = document.getElementById('useCaseModal');
+  var useCaseModalTitle = document.getElementById('useCaseModalTitle');
+  var useCaseSliderTrack = document.getElementById('useCaseSliderTrack');
+  var useCasePrev = document.getElementById('useCasePrev');
+  var useCaseNext = document.getElementById('useCaseNext');
+  var useCaseIndicator = document.getElementById('useCaseIndicator');
+  var currentSlideIndex = 0;
+  var currentSlides = [];
+
+  function buildChatSlide(slideData) {
+    var slide = document.createElement('div');
+    slide.className = 'use-case-slide';
+
+    var labelVoice = document.createElement('div');
+    labelVoice.className = 'use-case-chat-label';
+    labelVoice.textContent = '音声入力';
+    slide.appendChild(labelVoice);
+
+    slideData.voices.forEach(function(text) {
+      var row = document.createElement('div');
+      row.className = 'use-case-chat-row use-case-chat-row--right';
+      var bubble = document.createElement('div');
+      bubble.className = 'use-case-chat-bubble use-case-chat-bubble--voice';
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      slide.appendChild(row);
+    });
+
+    var labelResult = document.createElement('div');
+    labelResult.className = 'use-case-chat-label';
+    labelResult.textContent = 'AI変換結果';
+    slide.appendChild(labelResult);
+
+    var rowResult = document.createElement('div');
+    rowResult.className = 'use-case-chat-row use-case-chat-row--left';
+    var bubbleResult = document.createElement('pre');
+    bubbleResult.className = 'use-case-chat-bubble use-case-chat-bubble--result';
+    bubbleResult.textContent = slideData.result;
+    rowResult.appendChild(bubbleResult);
+    slide.appendChild(rowResult);
+
+    return slide;
+  }
+
+  function updateSlider() {
+    if (!useCaseSliderTrack) return;
+    useCaseSliderTrack.style.transform = 'translateX(-' + (currentSlideIndex * 100) + '%)';
+    useCaseIndicator.textContent = (currentSlideIndex + 1) + ' / ' + currentSlides.length;
+    useCasePrev.disabled = currentSlideIndex === 0;
+    useCaseNext.disabled = currentSlideIndex === currentSlides.length - 1;
+  }
 
   function openUseCaseModal(key) {
     var data = useCaseData[key];
     if (!data || !useCaseModal) return;
     useCaseModalTitle.textContent = data.title;
-    useCaseVoice.textContent = data.voice;
-    useCaseResult.textContent = data.result;
+    currentSlides = data.slides;
+    currentSlideIndex = 0;
+
+    useCaseSliderTrack.innerHTML = '';
+    currentSlides.forEach(function(slideData) {
+      useCaseSliderTrack.appendChild(buildChatSlide(slideData));
+    });
+
+    updateSlider();
     useCaseModal.classList.add('is-open');
     useCaseModal.setAttribute('aria-hidden', 'false');
     document.documentElement.style.overflow = 'hidden';
@@ -453,6 +506,17 @@ document.addEventListener('DOMContentLoaded', function() {
     useCaseModal.classList.remove('is-open');
     useCaseModal.setAttribute('aria-hidden', 'true');
     document.documentElement.style.overflow = '';
+  }
+
+  if (useCasePrev) {
+    useCasePrev.addEventListener('click', function() {
+      if (currentSlideIndex > 0) { currentSlideIndex--; updateSlider(); }
+    });
+  }
+  if (useCaseNext) {
+    useCaseNext.addEventListener('click', function() {
+      if (currentSlideIndex < currentSlides.length - 1) { currentSlideIndex++; updateSlider(); }
+    });
   }
 
   document.querySelectorAll('.use-case-card').forEach(function(card) {

@@ -5002,7 +5002,7 @@
 }
 
 /* ========================================
-   使用例モーダル（チャット形式）
+   使用例モーダル（スライダー付きチャット）
 ======================================== */
 .use-case-modal-overlay {
   position: fixed;
@@ -5030,17 +5030,19 @@
   border-radius: 20px;
   max-width: 520px;
   width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 32px 24px;
+  max-height: 92vh;
+  overflow: hidden;
+  padding: 32px 0 0;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .use-case-modal-close {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 8px;
+  right: 12px;
   background: none;
   border: none;
   font-size: 28px;
@@ -5049,6 +5051,7 @@
   line-height: 1;
   padding: 4px 8px;
   transition: color 0.2s ease;
+  z-index: 1;
 }
 
 .use-case-modal-close:hover {
@@ -5059,27 +5062,86 @@
   font-size: 20px;
   font-weight: 700;
   color: var(--deep-navy);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
+  padding: 0 24px;
+  flex-shrink: 0;
 }
 
-.use-case-chat {
+/* スライダー */
+.use-case-slider {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.use-case-slider-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  height: 100%;
+}
+
+.use-case-slide {
+  min-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  padding: 0 24px 16px;
+  overflow-y: auto;
 }
 
+/* スライダーナビ */
+.use-case-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px 20px;
+  border-top: 1px solid #E2E8F0;
+  flex-shrink: 0;
+}
+
+.use-case-slider-btn {
+  background: none;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wonder-blue);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.use-case-slider-btn:hover:not(:disabled) {
+  background: #EFF6FF;
+  border-color: var(--wonder-blue);
+}
+
+.use-case-slider-btn:disabled {
+  color: #CBD5E1;
+  border-color: #E2E8F0;
+  cursor: default;
+}
+
+.use-case-slider-indicator {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+/* チャットバブル */
 .use-case-chat-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--gray-500);
-  text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-top: 8px;
+  margin-top: 12px;
+  margin-bottom: 4px;
 }
 
 .use-case-chat-row {
   display: flex;
+  margin-bottom: 6px;
 }
 
 .use-case-chat-row--right {
@@ -5092,7 +5154,7 @@
 
 .use-case-chat-bubble {
   max-width: 85%;
-  padding: 14px 18px;
+  padding: 12px 16px;
   font-size: 14px;
   line-height: 1.7;
   border: none;
@@ -5109,7 +5171,7 @@
   color: var(--deep-navy);
   border-radius: 16px 16px 16px 4px;
   font-family: 'Menlo', 'Consolas', monospace;
-  font-size: 13px;
+  font-size: 12px;
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: 0;
@@ -5118,8 +5180,16 @@
 @media (max-width: 768px) {
   .use-case-modal {
     width: 95%;
-    padding: 24px 16px;
-    max-height: 92vh;
+    max-height: 94vh;
+    padding: 28px 0 0;
+  }
+
+  .use-case-slide {
+    padding: 0 16px 12px;
+  }
+
+  .use-case-slider-nav {
+    padding: 10px 16px 16px;
   }
 
   .use-case-chat-bubble {

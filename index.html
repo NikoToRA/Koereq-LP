@@ -428,20 +428,18 @@
       </div>
     </section>
 
-    <!-- 使用例モーダル（チャット形式） -->
+    <!-- 使用例モーダル（チャット形式 + スライダー） -->
     <div class="use-case-modal-overlay" id="useCaseModal" aria-hidden="true">
       <div class="use-case-modal">
         <button class="use-case-modal-close" aria-label="閉じる">&times;</button>
         <h3 class="use-case-modal-title" id="useCaseModalTitle"></h3>
-        <div class="use-case-chat">
-          <div class="use-case-chat-label">音声入力</div>
-          <div class="use-case-chat-row use-case-chat-row--right">
-            <div class="use-case-chat-bubble use-case-chat-bubble--voice" id="useCaseVoice"></div>
-          </div>
-          <div class="use-case-chat-label">AI変換結果</div>
-          <div class="use-case-chat-row use-case-chat-row--left">
-            <pre class="use-case-chat-bubble use-case-chat-bubble--result" id="useCaseResult"></pre>
-          </div>
+        <div class="use-case-slider">
+          <div class="use-case-slider-track" id="useCaseSliderTrack"></div>
+        </div>
+        <div class="use-case-slider-nav">
+          <button class="use-case-slider-btn use-case-slider-prev" id="useCasePrev" aria-label="前へ">&larr; 前へ</button>
+          <span class="use-case-slider-indicator" id="useCaseIndicator">1 / 1</span>
+          <button class="use-case-slider-btn use-case-slider-next" id="useCaseNext" aria-label="次へ">次へ &rarr;</button>
         </div>
       </div>
     </div>
