@@ -389,14 +389,45 @@
   justify-content: center;
 }
 
-.hero-text-main {
-  width: auto;
-  max-width: 91.96%;
-  /* 5%縮小: 96.8% × 0.95 = 91.96% */
-  height: auto;
+/* ヒーローのキャッチコピー（旧: title_qq.png をテキスト化） */
+.hero-copy {
+  width: 100%;
+  max-width: 92%;
+  margin: 0;
+  text-align: left;
+  font-weight: 900;
+  line-height: 1.28;
+  letter-spacing: 0.005em;
+  color: var(--white);
   opacity: 0;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
   animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.hero-copy-line {
+  display: block;
+  /* 白抜き文字＋濃紺の縁取り（paint-order で塗りを前面に） */
+  -webkit-text-stroke: 0.1em #12294f;
+  paint-order: stroke fill;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.hero-copy-line--lead {
+  font-size: clamp(19px, 3.35vw, 46px);
+}
+
+.hero-copy-line--main {
+  font-size: clamp(22px, 4.05vw, 56px);
+}
+
+.hero-copy-em {
+  font-style: normal;
+  color: #ff2f2f;
+}
+
+/* 語句の途中で折り返さない */
+.hero-copy-nobr {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 @keyframes fadeInUp {
@@ -529,8 +560,12 @@
     padding-left: 4%;
   }
 
-  .hero-text-main {
+  .hero-copy {
     max-width: 96%;
+  }
+
+  .hero-copy-line {
+    -webkit-text-stroke-width: 0.08em;
   }
 
   .scroll-indicator {
@@ -981,6 +1016,11 @@
   transition: all 0.3s ease;
 }
 
+/* 横長のロゴ（新札幌整形外科病院）は高さを揃えるため上限を広げる */
+.hospital-logo--wide {
+  max-width: 330px;
+}
+
 .hospital-logo:hover {
   transform: scale(1.05);
 }
@@ -988,10 +1028,14 @@
 /* 導入病院直下の動画2本 */
 .intro-videos-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-xl);
-  margin: var(--spacing-xl) 0;
   padding: 0 var(--spacing-md);
+  /* 動画3本を1行に収めるため、コンテナ(800px)より広く取り出す */
+  width: min(1120px, 92vw);
+  margin: var(--spacing-xl) 0 var(--spacing-xl) 50%;
+  transform: translateX(-50%);
 }
 
 .intro-video-card {
@@ -1072,6 +1116,14 @@
   margin: 0;
 }
 
+.intro-video-subtitle {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
 .social-proof-tagline {
   display: flex;
   align-items: center;
@@ -1104,6 +1156,37 @@
   border-radius: 50%;
   font-size: 14px;
   font-weight: 700;
+}
+
+.social-proof-facilities {
+  max-width: 680px;
+  margin: -14px auto 0;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.9;
+}
+
+/* 施設名が途中で改行されないようにする */
+.facility-name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.facility-name::after {
+  content: '／';
+  color: var(--gray-400, #9CA3AF);
+}
+
+.facility-name--last::after {
+  content: '';
+}
+
+.social-proof-facilities-more {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--wonder-blue);
 }
 
 .stats-note {
@@ -4754,27 +4837,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.emr-logo-item img {
-  max-height: 36px;
-  max-width: 160px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: grayscale(30%);
-  opacity: 0.85;
-  transition: filter 0.2s ease, opacity 0.2s ease;
-}
-
-.emr-logo-item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
 .emr-logo-item--text {
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--gray-700);
   white-space: nowrap;
+  text-align: center;
 }
 
 .emr-more-text {
@@ -4782,6 +4850,13 @@
   font-size: var(--text-xs);
   color: var(--gray-500);
   margin-top: var(--spacing-md);
+}
+
+.emr-disclaimer {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  margin-top: var(--spacing-xs);
 }
 
 @media (max-width: 640px) {
@@ -4800,12 +4875,7 @@
 
   .emr-logo-item {
     height: 40px;
-    padding: 6px 10px;
-  }
-
-  .emr-logo-item img {
-    max-height: 24px;
-    max-width: 100px;
+    padding: 6px 8px;
   }
 
   .emr-logo-item--text {
