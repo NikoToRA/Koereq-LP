@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/css/*",
+      "/js/*",
+      "/images/*",
+      "/videos/*",
+      "/*.{css,js,png,jpg,jpeg,gif,svg,webp,ico,mp4,webm,txt,xml,json,woff,woff2}"
+    ]
+  },
+  "globalHeaders": {
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+    "Content-Security-Policy": "default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  },
+  "mimeTypes": {
+    ".mp4": "video/mp4",
+    ".json": "application/json",
+    ".webmanifest": "application/manifest+json"
+  }
+}
