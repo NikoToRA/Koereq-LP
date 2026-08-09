@@ -26,7 +26,7 @@ services:
         value: geolocation=(), microphone=(), camera=()
       - path: /*
         name: Content-Security-Policy
-        value: "default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com"
+        value: "default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms; frame-src https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
     # カスタムドメイン設定（安定後に追加）
     # domains:
     #   - koereq.com

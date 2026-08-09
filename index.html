@@ -29,6 +29,41 @@
   <meta name="twitter:description" content="救急外来で話すだけで記録完了。記録時間80%削減。月16時間を取り戻し、救急スタッフのカルテ残業を0に。">
   <meta name="twitter:image" content="https://koereq-lp.onrender.com/images/ogp.jpg">
 
+  <!--
+    アクセス解析（GA4 / Microsoft Clarity）
+    下の2つのIDを埋めると、それぞれ有効になる。空のままなら一切読み込まない。
+      GA4_ID     : GA4管理画面の「測定ID」 例) G-XXXXXXXXXX
+      CLARITY_ID : Clarity管理画面の「プロジェクトID」 例) abcd1234ef
+    js/main.js 側に gtag() でCTAクリック/スクロール深度/動画再生を送る実装が既にあるため、
+    GA4_ID を入れた時点でカスタムイベントの計測も同時に始まる。
+  -->
+  <script>
+    (function () {
+      var GA4_ID = '';
+      var CLARITY_ID = '';
+
+      if (GA4_ID) {
+        var gaTag = document.createElement('script');
+        gaTag.async = true;
+        gaTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+        document.head.appendChild(gaTag);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', GA4_ID);
+      }
+
+      if (CLARITY_ID) {
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', CLARITY_ID);
+      }
+    })();
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

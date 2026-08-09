@@ -237,20 +237,30 @@ python3 simple_server.py
 ## 📝 次のタスク
 
 ### 優先度: 高
-- [ ] Section 8「選ばれる理由」の実装
-- [ ] デモ動画の作成・埋め込み（Section 5）
-- [ ] 実際の事例動画の作成・埋め込み（Section 7）
-- [ ] OGP画像の作成
+- [ ] **Google Analytics 4 の設置** — `js/main.js` は `gtag()` でCTAクリック/スクロール深度/動画再生を
+      送る実装が既にあるが、GA4タグ本体が `index.html` に無いため全イベントが握りつぶされている。
+      タグを入れるだけで計測が始まる状態
+- [ ] カスタムドメイン設定（`koereq.wonder-drill.com`）— DNS管理者の承認待ち。
+      承認後に CNAME → `blue-tree-0e8b97000.7.azurestaticapps.net` を追加
+- [ ] ドメイン確定後、`og:image` / `twitter:image` の絶対URLを新ドメインに差し替え
+- [ ] Section 8「選ばれる理由」の実装（未着手）
 
 ### 優先度: 中
 - [ ] お問い合わせフォームURL設定
 - [ ] 資料ダウンロードURL設定
-- [ ] Google Analytics 4設定
+- [ ] **使い方ショート動画ページ（別ページ）** — YouTube Shorts で使い方マニュアルを継続的に公開予定。
+      **3本以上たまった時点で着手**する。LP本体に載せると動画を足すたびにページが伸びて
+      CTAが遠ざかるため、専用ページを別に作りLPからリンクする方針（2026-08-09 決定）。
+      Shortsは9:16なので既存の16:9カードとは別レイアウトが必要。
+      モーダル再生の仕組み（`data-video-id`）は流用できるが、アスペクト比の切替対応が要る
+- [ ] フッターの企業サイトリンク修正 — `wonderdrill.co.jp` は存在しないドメイン（正: `wonder-drill.com`）
 
 ### 優先度: 低
-- [ ] ページ速度最適化（Lighthouse 90+）
+- [ ] ページ速度最適化（Lighthouse 90+）— 画像が約11MB/PVで最大の重し。
+      `hero_-title.png`(3MB) 等のWebP化が効く
+- [ ] 未使用画像の削除（約7.5MB。`hero_image.png` 2.8MB、`after.png` 1MB、`illust_*_v2/v3` の旧版など）
 - [ ] 全ブラウザ・デバイステスト
-- [ ] カスタムドメイン設定
+- [ ] Render からの完全移行（Azure 安定後に停止判断）
 
 ---
 
