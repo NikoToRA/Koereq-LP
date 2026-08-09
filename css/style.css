@@ -4641,7 +4641,10 @@
 
 .workflow-video {
   width: 100%;
+  /* iframe は height:auto が効かないため、元動画(1280x720)の比率を明示する */
+  aspect-ratio: 16 / 9;
   height: auto;
+  border: 0;
   display: block;
 }
 
