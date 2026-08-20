@@ -296,12 +296,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // ========================================
   // CTAボタンクリック追跡（Google Analytics用）
   // ========================================
-  document.querySelectorAll('.cta-button-primary, .cta-button-secondary').forEach(button => {
+  // 申込動線のボタンだけを対象にする。
+  // cta-button-secondary は動画モーダルを開くボタンであり申込ではないため含めない
+  // （含めるとCVRが実態より高く出る）。動画は下の video_play で別途計測する。
+  document.querySelectorAll('.cta-button-header, .cta-button-primary').forEach(button => {
     button.addEventListener('click', function() {
       const buttonText = this.textContent.trim();
-      const sectionId = this.closest('section')?.id || 'unknown';
+      const sectionId = this.closest('section')?.id
+        || (this.closest('header') ? 'header' : 'unknown');
 
-      // Google Analytics イベント送信（GA4設定後に有効化）
       if (typeof gtag !== 'undefined') {
         gtag('event', 'cta_click', {
           'event_category': 'engagement',
@@ -309,8 +312,6 @@ document.addEventListener('DOMContentLoaded', function() {
           'event_section': sectionId
         });
       }
-
-      console.log('CTA clicked:', buttonText, 'in section:', sectionId);
     });
   });
 
@@ -341,26 +342,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ========================================
-  // 動画再生トラッキング（動画追加後に有効化）
+  // 動画再生トラッキング
   // ========================================
-  /*
-  document.querySelectorAll('video').forEach(video => {
-    let videoPlayed = false;
-
-    video.addEventListener('play', function() {
-      if (!videoPlayed) {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'video_play', {
-            'event_category': 'engagement',
-            'event_label': 'demo_video'
-          });
-        }
-        videoPlayed = true;
-        console.log('Video played: demo_video');
-      }
+  // 動画は全てYouTube埋め込みに移行したため、<video> 要素ではなく
+  // モーダルを開くトリガー（=再生開始の意思表示）を計測対象にする
+  document.querySelectorAll('.js-video-modal-trigger').forEach(trigger => {
+    trigger.addEventListener('click', function() {
+      if (typeof gtag === 'undefined') return;
+      gtag('event', 'video_play', {
+        'event_category': 'engagement',
+        'event_label': this.getAttribute('data-video-title') || 'unknown',
+        'event_section': this.closest('section')?.id || 'unknown'
+      });
     });
   });
-  */
 
   // ========================================
   // 使用例モーダル（スライダー付きチャット）
